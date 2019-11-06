@@ -1,0 +1,4 @@
+cuantas paginas son, 4 o 5?
+Si, se puede hacer un index
+cada pagina que se refiere ahi tiene que ser virtualmente una pagina o varios puntos puedan estar dentro de una pagina?
+Se puede mezclar los puntos en otras páginas
