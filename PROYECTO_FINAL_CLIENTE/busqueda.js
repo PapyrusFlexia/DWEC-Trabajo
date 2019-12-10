@@ -1,4 +1,4 @@
-function filtrarTituloDirector(){
+function filtrarTituloTipo(){
     let inputTitulo = document.getElementById("titulo");
     let inputTipo = document.getElementById("tipo");
     let titulo = inputTitulo.value;
@@ -17,15 +17,15 @@ function filtrarTituloDirector(){
 }
 
 function realizarBusqueda(titulo, tipo){
-	let peliculasResultantes = juegos.filter( juego => juego.contieneTitulo(titulo) && juego.contieneDirector(tipo));
-	return peliculasResultantes;
+	let juegosResultantes = juegos.filter( juego => juego.contieneTitulo(titulo) && juego.contieneTipo(tipo));
+	return juegosResultantes;
 }
 
 let botonBuscar = document.getElementById("botonBusqueda");
 let inputsText = document.getElementsByClassName("inputForm");
 
 
-botonBuscar.addEventListener("click", filtrarTituloDirector);
+botonBuscar.addEventListener("click", filtrarTituloTipo);
 
 for (let i = 0; i < inputsText.length; i++) {
     inputsText[i].addEventListener("focus",focus);
