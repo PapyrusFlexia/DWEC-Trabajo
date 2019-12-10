@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head lang="es_ES">
+    <meta charset="UTF-8">
+    <title>BUSQUEDA</title>
+    <script src="busqueda.js" cache="false" defer></script>
+    <script src="clases.js" cache="false" defer></script>
+    <script src="objetos.js" cache="false" defer></script>
+    <script src="utilidades.js" cache="false" defer></script>
+</head>
+<body>
+    <h1>BUSQUEDA</h1>
+    <main>
+        <section class="form">
+            <form action="" name="buscador">
+                    <div class="filtrar">
+                        <label for="titulo">Titulo</label>
+                        <input type="search" name="titulo" id="titulo" class="inputForm" placeholder="Titulo del juego">
+                        <label for="titulo">Tipo</label>
+                        <input type="search" name="tipo" id="tipo" class="inputForm" placeholder="Tipo de juego">
+                        <button type="button" class="botonBusqueda" id="botonBusqueda">BUSCAR</button>
+                    </div>
+            </form>
+        </section>
+        <section class="form">
+            <form action="">
+                    <div class="filtrar">
+                        <label for="genero">Genero</label>
+                        <select id="genero" name="genero">
+                            <option value="">Selecciona el género</option>
+                            <option value="fantasia">Fantasía</option>
+                            <option value="misterio">Misterio</option>
+                            <option value="terror">Terror</option>
+                            <option value="sci-fi">Ciencia Ficción</option>
+                            <option value="estrategia">Estrategia</option>
+                        </select>
+                        <button type="button" class="botonGenero" id="botonGenero">BUSCAR</button>
+                    </div>
+            
+            </form>
+        </section>
+        <section>
+            <h1>JUEGOS DE ROL</h1>
+            <div id="juegosMostrar">
+                <div class="juego" data-identificador="D&D">
+                    <h2 data-identificador="titulo">Dungeons & Dragons</h2>
+                    <h3 data-identificador="genero">Fantasía</h3>
+                    <p data-identificador="creador">Gary Gigax</p>
+                    <p data-identificador="editorial">Wizards of the Coast</p>
+                </div>
+
+                <div class="juego" data-identificador="Cthulhu">
+                    <h2 data-identificador="titulo">La llamada de Cthulhu</h2>
+                    <h3 data-identificador="genero">Misterio</h3>
+                    <p data-identificador="creador">Sandy Petersen</p>
+                    <p data-identificador="editorial">Chaosium</p>
+                </div>
+
+                <div class="juego" data-identificador="prueba">
+                        <h2 data-identificador="titulo">prueba</h2>
+                        <h3 data-identificador="genero">prueba</h3>
+                        <p data-identificador="creador">prueba</p>
+                        <p data-identificador="editorial">prueba</p>
+                    </div>
+            </div>
+       
+        </section>
+    </main>
+    
+
+    
+</body>
+</html>
