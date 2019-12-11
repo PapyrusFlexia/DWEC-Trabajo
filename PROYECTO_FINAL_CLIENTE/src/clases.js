@@ -39,8 +39,8 @@ class Tienda{
 
 }
 
-let usuariouno= new Cliente("Pablo","Vega Sanchez");
-let usuariodos = new Cliente("Carlos", "García Mármol");
+let usuariouno= new Usuario("Pablo","Vega Sanchez", "DnD");
+let usuariodos = new Usuario("Carlos", "García Mármol", "La llamada de Cthulhu");
 let listaUsuarios = [usuariouno,usuariodos];
 
 usuariouno.incluirJuegosComprados(juego1);   /** NOMBRES DE LOS JUEGOS */
@@ -81,13 +81,6 @@ class Usuario{
 		this._juegosComprados=juegos;
 	}
 
-	get votos(){
-		return this._votos;
-	}
-
-	set votos(votos){
-		this._votos=votos;
-	}
 	
 	incluirJuegosComprados(juego){
 		this._juegosComprados.push(juego);
@@ -100,6 +93,53 @@ class Usuario{
 			contiene = this.nombre.toUpperCase().includes(nombreEncontrado);
 		}
 		return contiene;
+	}
+}
+
+let WizardsOfTheCoast = new Productora("Wizards of the Coast", "DnD");
+let Chaosium = new Productora("Chaosium", "La llamada de Cthulhu");
+let prueba = new Productora("prueba", "pruebajuego");
+
+let listaGeneros = [WizardsOfTheCoast,Chaosium,prueba];
+
+class Editorial{
+
+	constructor(nombre){
+		this.nombre = nombre;
+		this.juegos = [];
+	}
+
+	get nombre(){
+		return `${this._nombre}`;
+	}
+
+	set nombre(nombre){
+		this._nombre=nombre;
+	}
+
+	get juegos(){
+		return this._juegos;
+	}
+
+	set juegos(juegos){
+		this._juegos=juegos;
+	}
+	
+	incluirJuegos(juego){
+		this._juegos.push(juego);
+	}
+
+	contieneNombre(nombre){
+		let contiene = false;
+		let nombreEncontrado = quitarEspaciosArrays(nombre);
+		if(nombreEncontrado !== null){
+			contiene = this.nombre.toUpperCase().includes(nombreEncontrado);
+		}
+		return contiene;
+	}
+
+	toString(){
+		return `${this.nombre}`;
 	}
 }
 

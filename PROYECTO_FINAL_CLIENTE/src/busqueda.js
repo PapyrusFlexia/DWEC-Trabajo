@@ -20,7 +20,7 @@ function noEspacios(cadena){
 
 /**
  * Funcion que recibe una cadena, le quita los espacios en blanco por delante y por detras y la pone en mayusculas
- * @param {string} cadena es la cadena a tratar
+ * @param {string} array es la cadena a tratar
  */
 function quitarEspaciosArrays(array){
     let arrayResultante = null;
@@ -58,7 +58,7 @@ function filtrarTituloTipo(){
     
 }
 
-function realizarBusqueda(titulo, genero){
+function realizarBusqueda(titulo, tipo){
 	let juegosResultantes = juegos.filter( juego => juego.contieneTitulo(titulo) && juego.contieneTipo(tipo));
 	return juegosResultantes;
 }
@@ -66,29 +66,44 @@ function realizarBusqueda(titulo, genero){
 function filtrarGenero(){
     let inputGenero = document.getElementById("genero");
     let genero  = inputGenero.value.trim().toLowerCase();
-    let juegosResultantes = similar(genero);
+    let juegosResultantes = similarGenero(genero);
     mostrarJuegosHTML(juegosResultantes);
 }
 
-function similar(genero){
-    let juegosResultantes = juegos.filter( juego => juegos.contieneGenero(juegos));
+function similarGenero(genero){
+    let juegosResultantes = juegos.filter( juegos => juegos.contieneGenero(genero));
     return juegosResultantes;
 }
+
+function filtrarEditorial(){
+    let inputEditorial = document.getElementById("editorial");
+    let nombreEditorial = inputEditorial.value.trim().toUpperCase();
+    let juegosEditorial = busquedaEditorial(nombreEditorial);
+    mostrarJuegosHTML(juegosEditorial);
+}
+
+function busquedaEditorial(nombre){
+    let editorial = listaGeneros.find( editorial => editorial.contieneNombre(nombre));
+    return editorial.juegos;
+}
+
 
 /* funcion para mostrar los juegos comprados del usuario */
 
 function juegosComprados(){
     let inputUsuario = document.getElementById("usuario");
     let nombre = inputUsuario.value.trim().toUpperCase();
-    let peliculasFavoritas = [];
+    let juegosComprados = [];
     let esNombreCorrecto = validarNombreUsuario(inputUsuario,erroresFiltrarPF);
 
     if(esNombreCorrecto){
-        peliculasFavoritas = peliculasUsuario(nombre);
-            mostrarPeliculasHTML(juegosComprados);
+        juegosComprados = juegosUsuario(nombre);
+            mostrarJuegosHTML(juegosComprados);
        
     }
 }
+
+
 
 /** devuelve los juegos comprados */
 function juegosUsuario(nombre){
@@ -104,7 +119,11 @@ function juegosUsuario(nombre){
 
 
 
+
 let botonBuscar = document.getElementById("botonBusqueda");
+let botonGenero = document.getElementById("botonGenero");
+let botonEditorial = document.getElementById("botonEditorial");
+let botonUsuario = document.getElementById("botonUsuario");
 let inputsText = document.getElementsByClassName("inputForm");
 
 
