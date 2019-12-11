@@ -41,12 +41,33 @@ class Tienda{
 
 let usuariouno= new Usuario("Pablo","Vega Sanchez", "DnD");
 let usuariodos = new Usuario("Carlos", "García Mármol", "La llamada de Cthulhu");
+
+let juego1 = new Juego("DnD", "Gary Gigax", "Fantasía", "Wizards of the Coast");
+let juego2 = new Juego("La llamada de Cthulhu", "Sandy Petersen", "Misterio", "Chaosium");
+let juego3 = new Juego("prueba", "Pablo Vega", "Ciencia Ficcion", "Paninos");
+
+let creador1 = new Creador("Gary","Gigax");
+let creador2 = new Creador("Sandy","Petersen");
+let creador3 = new Creador("Pablo","Vega");
+
 let listaUsuarios = [usuariouno,usuariodos];
 
 usuariouno.incluirJuegosComprados(juego1);   /** NOMBRES DE LOS JUEGOS */
 usuariouno.incluirJuegosComprados(juego2);
 usuariodos.incluirJuegosComprados(juego3);
-usuariodos.incluirJuegosComprados(juego4);
+
+
+let juegos= [];
+
+
+juegos.push(juego1);
+juegos.push(juego2);
+juegos.push(juego3);
+
+
+
+
+let listaCreadores = [creador1, creador2, creador3];
 
 
 class Usuario{
@@ -100,7 +121,7 @@ let WizardsOfTheCoast = new Productora("Wizards of the Coast", "DnD");
 let Chaosium = new Productora("Chaosium", "La llamada de Cthulhu");
 let prueba = new Productora("prueba", "pruebajuego");
 
-let listaGeneros = [WizardsOfTheCoast,Chaosium,prueba];
+let listaEditoriales = [WizardsOfTheCoast,Chaosium,prueba];
 
 class Editorial{
 
@@ -151,9 +172,6 @@ class Juego{
 		this.creador = creador;
 		this.genero = genero;
 		this.editorial = editorial;
-		this.votos = [];
-		this.likes = 0;
-		this.dislikes = 0;
 	}
 
 	get titulo(){
@@ -188,14 +206,6 @@ class Juego{
 		this._genero=genero;
 	}
 
-	get votos(){
-		return this._votos;
-	}
-
-	set votos(votos){
-		this._votos=votos;
-	}
-
 	incluirJuegosComprados(juego){
 		this._juegosComprados.push(juego);
 	}
@@ -219,6 +229,47 @@ class Juego{
 	}
 	
 }
+
+class Creador{
+
+	constructor(nombre,apellidos){
+		super(nombre,apellidos);
+		this.juegos = [];
+	}
+
+	get nombre(){
+		return `${this._nombre}`;
+	}
+
+	set nombre(nombre){
+		this._nombre=nombre;
+	}
+
+	get apellidos(){
+		return `${this._apellidos}`;
+	}
+
+	set apellidos(apellidos){
+		this._apellidos=apellidos;
+	}
+
+	get juegos(){
+		return this._juegos;
+	}
+
+	set juegos(juegos){
+		this._juegos=juegos;
+	}
+	
+	incluirJuegos(juego){
+		this._juegos.push(juego);
+	}
+
+	toString(){
+		return `${this.nombre} ${this.apellidos}`;
+	}
+}
+
 
 
 mostrarEnHTML(nodoHTML){
