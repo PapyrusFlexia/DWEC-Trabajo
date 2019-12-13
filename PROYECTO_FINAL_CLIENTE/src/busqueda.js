@@ -35,7 +35,7 @@ function quitarEspaciosArrays(array){
 }
 
 function incluirJuegoHTML(juego){
-    let divJuegos  = document.getElementById("juegosMostrar");
+    let divJuegos  = document.getElementById("juegosMostrar"); /** TAL VEZ HALLA QUE QUITARLO */
     juego.mostrarEnHTML(divJuegos);
 }
 
@@ -83,7 +83,7 @@ function filtrarEditorial(){
 }
 
 function busquedaEditorial(nombre){
-    let editorial = listaGeneros.find( editorial => editorial.contieneNombre(nombre));
+    let editorial = listaEditoriales.find( editorial => editorial.contieneNombre(nombre));
     return editorial.juegos;
 }
 
@@ -128,6 +128,9 @@ let inputsText = document.getElementsByClassName("inputForm");
 
 
 botonBuscar.addEventListener("click", filtrarTituloTipo);
+botonGenero.addEventListener("click",filtrarGenero);
+botonUsuario.addEventListener("click", juegosComprados);
+botonEditorial.addEventListener("click",filtrarEditorial);
 
 for (let i = 0; i < inputsText.length; i++) {
     inputsText[i].addEventListener("focus",focus);
