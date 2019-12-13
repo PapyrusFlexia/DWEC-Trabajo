@@ -35,7 +35,7 @@ function quitarEspaciosArrays(array){
 }
 
 function incluirJuegoHTML(juego){
-    let divJuegos  = document.getElementById("juegosMostrar");
+    let divJuegos  = document.getElementById("juegosMostrar"); /** TAL VEZ HALLA QUE QUITARLO */
     juego.mostrarEnHTML(divJuegos);
 }
 
