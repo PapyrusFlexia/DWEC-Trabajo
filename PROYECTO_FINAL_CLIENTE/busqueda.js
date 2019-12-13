@@ -132,10 +132,10 @@ botonGenero.addEventListener("click",filtrarGenero);
 botonUsuario.addEventListener("click", juegosComprados);
 botonEditorial.addEventListener("click",filtrarEditorial);
 
-for (let i = 0; i < inputsText.length; i++) {
+/* for (let i = 0; i < inputsText.length; i++) {
     inputsText[i].addEventListener("focus",focus);
     inputsText[i].addEventListener("blur",blur);
-}
+} **/
 
 
 

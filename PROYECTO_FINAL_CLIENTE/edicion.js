@@ -1,4 +1,4 @@
-function añadirPelicula(){
+function añadirJuego(){
     let inputTitulo = document.getElementById("titulo");
     let inputCreador = document.getElementById("nombre");
     let inputApellidoCreador = document.getElementById("apellido");
@@ -17,7 +17,7 @@ function añadirPelicula(){
         let validaJue = juegos.find( juego => juego.titulo === inputTitulo.value);
         if(creador === undefined){
             creador = new Creador(inputCreador.value,inputApellidoCreador.value);
-            listaDirectores.push(director);
+            listaCreadores.push(creador);
         }
         if(editorial === undefined){
             editorial = new Editorial(inputEditorial.value);
@@ -40,11 +40,9 @@ function incluirJuegoHTML(juego){
     juego.mostrarEnHTML(divJuegos);
 }
 
-/** //FUNCION PARA MARCAR INPUTS CORRECTOS                           ----------------TAL VEZ HAYA QUE USARLOS
-function marcarInputComoCorrecto(input,divErrores){
+// FUNCION PARA MARCAR INPUTS CORRECTOS                      
+function correcto(input){
 	input.className  = 'correcto';
-	// let padre = input.parentNode;
-	// debugger;
 	let spanError = document.querySelectorAll(`#${input.id} + span`);
 	if(spanError.length > 0){
 		for (let i = 0; i < spanError.length; i++) {
@@ -55,17 +53,17 @@ function marcarInputComoCorrecto(input,divErrores){
 }
 
 //FUNCION PARA MARCAR INPUTS INCORRECTOS
-function marcarInputComoErroneo(input,divErrores,textoError){
+function erroneo(input, error){
 	input.className  = 'incorrecto';
 	let padre = input.parentNode;
 	let spanError = document.querySelectorAll(`#${input.id} + span`);
 	if(spanError.length === 0){
 		let spanNuevo = document.createElement("span");
 		spanNuevo.className = 'error';
-		spanNuevo.innerHTML = textoError;
+		spanNuevo.innerHTML = error;
 		divErrores.appendChild(spanNuevo.cloneNode(true));
 	}
-} */
+} 
 
 function noEspacios(cadena){
     let arrayPalabras = cadena.split(" ");
@@ -94,60 +92,69 @@ function quitarEspaciosArrays(array){
 }
 
 
-function validarTituloJuego(cadena){
+function validarTituloJuego(inputTituloJuego){
 	let validado = false;
-	let tituloValidado = quitarEspaciosArrays(cadena);
+	let tituloValidado = quitarEspaciosArrays(inputTituloJuego);
 
 	if(tituloValidado === undefined || tituloValidado.length <= 1){
+		erroneo(inputTituloJuego, 'No se ha validado el titulo')
 	}else{
 		validado = true;
+		correcto(inputTituloJuego);
 	}
 	return validado;
 }
 
-function validarNombreCreador(cadena){
+function validarNombreCreador(inputNombreCreador){
 	let validado = false;
-    let nombreValidado = quitarEspaciosArrays(cadena);
+    let nombreValidado = quitarEspaciosArrays(inputNombreCreador);
     let regex = /^[A-Z]{2,}$/g
 
 	if(!regex.test(nombreValidado)){
-		// marcarInputComoErroneo(inputNombreD,divErrores,'El nombre del director es erroneo<br>');
+		erroneo(inputNombreCreador, 'No se ha validado el nombre');
 	}else{
 		validado = true;
+		correcto(inputNombreCreador);
 	}
 	return validado;
 }
 
-function validarApellidoCreador(cadena){
+function validarApellidoCreador(inputApellidoCreador){
 	let validado = false;
-	let apellidoValidado = quitarEspaciosArrays(cadena);
+	let apellidoValidado = quitarEspaciosArrays(inputApellidoCreador);
 
 	if(apellidoValidado === undefined || apellidoValidado.length < 1){
+		erroneo(inputApellidoCreador, 'No se ha validado el apellido');
 	}else{
-        validado = true;
+		validado = true;
+		correcto(inputApellidoCreador);
         // marcarInputComoCorrecto(inputGenero);
 	}
 	return validado;
 }
 
-function validarGenero(cadena){
+function validarGenero(inputGenero){
 	let validado = false;
-	let generoValidado = quitarEspaciosArrays(cadena);
+	let generoValidado = quitarEspaciosArrays(inputGenero);
 
 	if(generoValidado === undefined || generoValidado.length === ""){
+		erroneo(inputGenero, 'No se ha validado el género');
 	}else{
 		validado = true;
+		correcto(inputGenero);
 	}
 	return validado;
 }
 
-function validarNombreEditorial(cadena){
+function validarNombreEditorial(inputNombreEditorial){
 	let validado = false;
-	let editorialValidado = quitarEspaciosArrays(cadena);
+	let editorialValidado = quitarEspaciosArrays(inputNombreEditorial);
 
 	if(editorialValidado === undefined || editorialValidado.length < 2){
+		erroneo(inputNombreEditorial, 'No se ha validado el nombre de la editorial');
 	}else{
 		validado = true;
+		correcto(inputNombreEditorial);
 	}
 	return validado;
 }
@@ -157,8 +164,10 @@ function validarJuegoCambiado(inputJuego){
 	let juegoValidado = quitarEspaciosArrays(inputJuego.value);
 
 	if(juegoValidado === null || juegoValidado.length <= 1){
+		erroneo(inputJuego, 'No se ha validado el nombre de la editorial'):
 	}else{
 		validado = true;
+		correcto(inputNombreEditorial);
 	}
 	return validado;
 }
@@ -167,16 +176,16 @@ function validarJuegoCambiado(inputJuego){
 
 function cambiarUsuarioActual(){
 	let seleccionarUsuario = null;
-	let inputJuego = document.getElementById("peliculaD"); /** CAMBIAR EN HTML */
-	let inputNuevoNombre = document.getElementById("nombreD");
-    let inputNuevoApellido = document.getElementById("apellidoD");
+	let inputJuego = document.getElementById("juegoUsuario"); /** CAMBIAR EN HTML */
+	let inputNuevoNombre = document.getElementById("nombreUsuario");
+    let inputNuevoApellido = document.getElementById("apellidoUsuario");
     
 
-    let esPeliculaCorrecto = validarJuegoCambiado(inputJuego);      
+    let validaJuego = validarJuegoCambiado(inputJuego);      
 	let validaNuevoNombre = validarNombreCreador(inputNuevoNombre);
 	let validaNuevoApellido = validarApellidoCreador(inputNuevoApellido); /** ES APELLIDO Y NOMBRE CREADOR PORQUE ESTAS FUNCIONES DE VALIDAR TAMBIÉN NOS SIRVEN PARA ESTE CASO */
 
-	if(validaNuevoNombre && validaNuevoApellido && esPeliculaCorrecto){
+	if(validaNuevoNombre && validaNuevoApellido && validaJuego){
 		let nuevoUsuario = new Usuario(inputNuevoNombre.value,inputNuevoApellido.value);
 		if(!listaUsuarios.includes(nuevoUsuario)){
 			listaUsuarios.push(nuevoUsuario);
@@ -197,29 +206,63 @@ function cambiarUsuarioActual(){
 	
 }
 
+function cambiarEditorialActual(){
+	let inputNuevoNombre = document.getElementById("nombreEditorial");
+	let inputJuego = document.getElementById("juegoEditorial");
 
+	let validaNuevoNombre = validarNombreP(inputNuevoNombre);
+	let validaJuego = validarPeliculaSeleccionada(inputJuego);
 
-//CONSIGUIENDO BOTON DEL FORMULARIO
-let botonNuevaPelicula = document.getElementById("añadirEditorial");
-let botonCambiarDirector = document.getElementById("cambiarDirector");
-let botonCambiarProductora = document.getElementById("cambiarProductora");
-//Obtencion de input de tipo text
-let inputsText = document.getElementsByClassName("inputForm");
+	if(validaNuevoNombre && validaJuego){
+		let nuevaEditorial = new Editorial(inputNuevoNombre.value);
+		if(!listaEditoriales.includes(nuevaEditorial)){
+			listaEditoriales.push(nuevaEditorial);
+		}
+		let juego = juegos.find(juego => noEspacios(juego.titulo) === inputJuego.value);
 
-//AÑADIENDO EL EVENTO AL BOTON
-
-botonNuevaPelicula.addEventListener("click",añadirPelicula);    /** MODIFICAR METODOS */
-botonCambiarDirector.addEventListener("click",cambiarDirectorActual);
-botonCambiarProductora.addEventListener("click",cambiarProductoraActual);
-
-for (let i = 0; i < inputsText.length; i++) {
-    inputsText[i].addEventListener("focus",focus);
-    inputsText[i].addEventListener("blur",blur);
+		if(juego !== undefined){
+			juego.editorial = nuevaEditorial;
+			let juegosSeleccionado = document.querySelector(`div[data-identificador = ${inputJuego.value}]`);
+			let editorialActual = juegosSeleccionado.querySelector("p[data-identificador = editorial]");
+			editorialActual.innerHTML = `${nuevaEditorial}`;
+		}
+		
+	}
+	
 }
 
 
 
-/*document.addEventListener("DOMContentLoaded", function(event) {
-	//Creando opciones formulario cambiar director
+//CONSIGUIENDO BOTON DEL FORMULARIO
+let botonNuevoJuego = document.getElementById("añadirEditorial");
+let botonCambiarUsuario = document.getElementById("cambiarUsuario");
+let botonCambiarEditorial = document.getElementById("cambiarEditorial");
+let inputsText = document.getElementsByClassName("inputForm");
+
+//AÑADIENDO EL EVENTO AL BOTON
+
+botonNuevoJuego.addEventListener("click",añadirJuego);   
+botonCambiarUsuario.addEventListener("click",cambiarUsuarioActual);
+botonCambiarEditorial.addEventListener("click",cambiarEditorialActual);
+
+/** for (let i = 0; i < inputsText.length; i++) {
+    inputsText[i].addEventListener("focus",focus);
+    inputsText[i].addEventListener("blur",blur);
+} */
+
+function crearOpciones(input){
+	for (let juego of juegos) {
+		let opcion = document.createElement("option");
+		opcion.className = "opcion";
+		opcion.setAttribute("value", noEspacios(juego.titulo));
+		opcion.innerHTML = `${juego.titulo}`;
+		input.appendChild(opcion);
+		
+	}
+}
+
+
+
+document.addEventListener("DOMContentLoaded", function(event) {
 	crearOpciones();
-});*/
+});

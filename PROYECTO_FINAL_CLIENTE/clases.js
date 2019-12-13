@@ -117,9 +117,9 @@ class Usuario{
 	}
 }
 
-let WizardsOfTheCoast = new Productora("Wizards of the Coast", "DnD");
-let Chaosium = new Productora("Chaosium", "La llamada de Cthulhu");
-let prueba = new Productora("prueba", "pruebajuego");
+let WizardsOfTheCoast = new Editorial("Wizards of the Coast", "DnD");
+let Chaosium = new Editorial("Chaosium", "La llamada de Cthulhu");
+let prueba = new Editorial("prueba", "pruebajuego");
 
 let listaEditoriales = [WizardsOfTheCoast,Chaosium,prueba];
 
