@@ -20,7 +20,7 @@ function mostrarJuegosHTML(juegosMostrar){
     if(juegosMostrar.length === 0){
         divJuegos.innerHTML = "No se ha encontrado ningún juego";
     }else{
-        juegosMostrar.forEach( juego => juego.mostrarEnHTML(divJuegos));
+        juegosMostrar.forEach(juego => juego.mostrarEnHTML(divJuegos));
     }
 }
 
@@ -197,4 +197,17 @@ function noEspacios(cadena){
         nueva += arrayPalabras[i];
     }
     return nueva;
+}
+
+function validarLongitud(inputLongitud,divErrores){
+	let valido = false;
+	let longitudValidada = inputLongitud.value;
+
+	if(longitudValidada === null || longitudValidada <= 0){
+		erroneo(inputLongitud,divErrores,'La longitud no puede ser menor que 0');
+	}else{
+		valido = true;
+		correcto(inputLongitud);
+	}
+	return valido;
 }
