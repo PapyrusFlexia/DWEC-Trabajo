@@ -30,6 +30,24 @@ let editorial9 = new Editorial("Memeverso");
 
 let listaEditoriales = [editorial1,editorial2,editorial3,editorial4,editorial5,editorial6,editorial7,editorial8,editorial9];
 
+
+
+let juego1 = new Juego("DnD", "Gary Gigax", "Fantasía", "Wizards of the Coast");
+let juego2 = new Juego("La llamada de Cthulhu", "Sandy Petersen", "Misterio", "Chaosium");
+let juego3 = new Juego("Weegee", "Pablo Vega", "Ciencia Ficcion", "Paninos");
+let juego4 = new Juego("Heehee", "Michael Jackson", "Terror", "Mierdijuegos");
+let juego5 = new Juego("Referencia Entendida", "Morgan Freeman", "Sci-Fi", "Ada Its");
+let juego6 = new Juego("Aw Shit Here We Go Again", "Carl Johnson", "Estrategia", "Rockstar");
+let juego7 = new Juego("La Marca Del Este", "Pedro Gil", "Fantasía", "Holocubierta");
+let juego8 = new Juego("El Cero", "Pablo Vega", "Misterio", "Chaosium");
+let juego9 = new Juego("La Ciudad de la Locura", "Gary Gigax", "Terror", "Wizards of the Coast");
+let juego10 = new Juego("Fate", "Fred Hicks", "Fantasía", "Evil Hat");
+let juego11 = new Juego("Fate Acelerado", "Fred Hicks", "Estrategia", "Evil Hat");
+let juego12 = new Juego("Pipo", "Alejandro Fernández", "Misterio", "Memeverso");
+let juego13 = new Juego("Yeetus Deletus", "Alejandro Fernández", "Sci-Fi", "Memeverso");
+let juego14 = new Juego("Age of Empires", "Sandy Petersen", "Estrategia", "Chaosium");
+let juego15 = new Juego("Chainmail", "Gary Gigax", "Fantasía", "Mierdijuegos");
+
 editorial1.incluirJuegos(juego1);
 editorial1.incluirJuegos(juego9);
 
@@ -53,22 +71,6 @@ editorial8.incluirJuegos(juego11);
 
 editorial9.incluirJuegos(juego12);
 editorial9.incluirJuegos(juego13);
-
-let juego1 = new Juego("DnD", "Gary Gigax", "Fantasía", "Wizards of the Coast");
-let juego2 = new Juego("La llamada de Cthulhu", "Sandy Petersen", "Misterio", "Chaosium");
-let juego3 = new Juego("Weegee", "Pablo Vega", "Ciencia Ficcion", "Paninos");
-let juego4 = new Juego("Heehee", "Michael Jackson", "Terror", "Mierdijuegos");
-let juego5 = new Juego("Referencia Entendida", "Morgan Freeman", "Sci-Fi", "Ada Its");
-let juego6 = new Juego("Aw Shit Here We Go Again", "Carl Johnson", "Estrategia", "Rockstar");
-let juego7 = new Juego("La Marca Del Este", "Pedro Gil", "Fantasía", "Holocubierta");
-let juego8 = new Juego("El Cero", "Pablo Vega", "Misterio", "Chaosium");
-let juego9 = new Juego("La Ciudad de la Locura", "Gary Gigax", "Terror", "Wizards of the Coast");
-let juego10 = new Juego("Fate", "Fred Hicks", "Fantasía", "Evil Hat");
-let juego11 = new Juego("Fate Acelerado", "Fred Hicks", "Estrategia", "Evil Hat");
-let juego12 = new Juego("Pipo", "Alejandro Fernández", "Misterio", "Memeverso");
-let juego13 = new Juego("Yeetus Deletus", "Alejandro Fernández", "Sci-Fi", "Memeverso");
-let juego14 = new Juego("Age of Empires", "Sandy Petersen", "Estrategia", "Chaosium");
-let juego15 = new Juego("Chainmail", "Gary Gigax", "Fantasía", "Mierdijuegos");
 
 
 usuariouno.incluirJuegosComprados(juego1);   /** NOMBRES DE LOS JUEGOS */

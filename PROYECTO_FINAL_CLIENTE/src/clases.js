@@ -39,7 +39,32 @@ class Tienda{
 
 }
 
-class Usuario{
+class Persona{
+
+	constructor(nombre,apellidos){
+		this.nombre = nombre;
+		this.apellidos = apellidos;
+	}
+
+
+	get nombre(){
+		return `${this._nombre}`;
+	}
+
+	set nombre(nombre){
+		this._nombre=nombre;
+	}
+
+	get apellidos(){
+		return `${this._apellidos}`;
+	}
+
+	set apellidos(apellidos){
+		this._apellidos=apellidos;
+	}
+}
+
+class Usuario extends Persona{
 
 	constructor(nombre, apellidos){
 		super(nombre,apellidos);
@@ -173,6 +198,42 @@ class Juego{
 		this._juegosComprados.push(juego);
 	}
 
+	mostrarEnHTML(nodoHTML){
+		let bloque = document.createElement("div");
+		bloque.className = "juego";
+		bloque.setAttribute("data-identificador", noEspacios(this.titulo));
+		let titulo = document.createElement("h2");
+		titulo.innerHTML = this.titulo; 
+		titulo.setAttribute("data-identificador","titulo");
+		let genero = document.createElement("h3");
+		genero.innerHTML = this.genero;
+		genero.setAttribute("data-identificador","genero");
+		let creador = document.createElement("p");
+		creador.innerHTML = `${this.creador}`;
+		creador.setAttribute("data-identificador","creador");
+		let editorial = document.createElement("p");
+		editorial.innerHTML = `${this.editorial}`;
+		editorial.setAttribute("data-identificador","editorial");
+		let contadorLikes = document.createElement("i");
+		contadorLikes.setAttribute("data-identificador","contadorLikes");
+		contadorLikes.classList.add("far");
+		contadorLikes.classList.add("fa-thumbs-up");
+		contadorLikes.innerHTML = `${this.likes}`;
+		let contadorDislikes = document.createElement("i");
+		contadorDislikes.setAttribute("data-identificador","contadorDislikes");
+		contadorDislikes.classList.add("far");
+		contadorDislikes.classList.add("fa-thumbs-down");
+		contadorDislikes.innerHTML = `${this.dislikes}`;
+		bloque.append(titulo);
+		bloque.append(genero);
+		bloque.append(creador);
+		bloque.append(editorial);
+		bloque.append(contadorLikes);
+		bloque.append(contadorDislikes);
+		nodoHTML.appendChild(bloque);
+	}
+	
+
 	contieneTitulo(titulo){
 		let contiene = false;
 		let tituloEncontrado = quitarEspaciosArrays(titulo);
@@ -193,7 +254,7 @@ class Juego{
 	
 }
 
-class Creador{
+class Creador extends Persona{
 
 	constructor(nombre,apellidos){
 		super(nombre,apellidos);
@@ -233,40 +294,6 @@ class Creador{
 	}
 }
 
-mostrarEnHTML(nodoHTML){
-	let bloque = document.createElement("div");
-	bloque.className = "juego";
-	bloque.setAttribute("data-identificador", noEspacios(this.titulo));
-	let titulo = document.createElement("h2");
-	titulo.innerHTML = this.titulo; 
-	titulo.setAttribute("data-identificador","titulo");
-	let genero = document.createElement("h3");
-	genero.innerHTML = this.genero;
-	genero.setAttribute("data-identificador","genero");
-	let creador = document.createElement("p");
-	creador.innerHTML = `${this.creador}`;
-	creador.setAttribute("data-identificador","creador");
-	let editorial = document.createElement("p");
-	editorial.innerHTML = `${this.editorial}`;
-	editorial.setAttribute("data-identificador","editorial");
-	let contadorLikes = document.createElement("i");
-	contadorLikes.setAttribute("data-identificador","contadorLikes");
-	contadorLikes.classList.add("far");
-	contadorLikes.classList.add("fa-thumbs-up");
-	contadorLikes.innerHTML = `${this.likes}`;
-	let contadorDislikes = document.createElement("i");
-	contadorDislikes.setAttribute("data-identificador","contadorDislikes");
-	contadorDislikes.classList.add("far");
-	contadorDislikes.classList.add("fa-thumbs-down");
-	contadorDislikes.innerHTML = `${this.dislikes}`;
-	bloque.append(titulo);
-	bloque.append(genero);
-	bloque.append(creador);
-	bloque.append(editorial);
-	bloque.append(contadorLikes);
-	bloque.append(contadorDislikes);
-	nodoHTML.appendChild(bloque);
-}
 
 
 
