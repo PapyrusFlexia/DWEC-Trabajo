@@ -211,3 +211,16 @@ function validarLongitud(inputLongitud,divErrores){
 	}
 	return valido;
 }
+
+function validarJuegoSeleccionado(inputJuego,divErrores){
+	let validado = false;
+	let juegoValidado = quitarEspaciosArrays(inputJuego.value);
+
+	if(juegoValidado === null || juegoValidado.length <= 1){
+		erroneo(inputJuego,divErrores,'Selecciona un juego');
+	}else{
+		validado = true;
+		correcto(inputJuego);
+	}
+	return validado;
+}
