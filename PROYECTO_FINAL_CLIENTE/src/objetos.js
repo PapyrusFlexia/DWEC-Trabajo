@@ -1,172 +1,147 @@
-//Declarando Clientes
-let clientePepe = new Cliente("Pepe","Espejo Roig","72146712K",954321231,"Calle Don Nadie, Nº213");
-let clienteJorge = new Cliente("Jorge","Baron Abad","72254571F",954367681,"Calle Don Alguien, Nº214");
-let clientePaco = new Cliente("Paco","Pacote Paquitez","72254571F",954657681,"Calle Don Pipon, Nº214");
+let usuariouno= new Usuario("Pablo","Vega", "DnD");
+let usuariodos = new Usuario("Carlos", "García", "La llamada de Cthulhu");
+let usuariotres= new Usuario("Dingus","Mingus", "Weegee");
+let usuariocuatro = new Usuario("Lou", "Logio", "Heehee");
+let usuariocinco = new Usuario("Alejandro","Capo", "Referencia Entendida");
+
+let listaUsuarios = [usuariouno,usuariodos,usuariotres,usuariocuatro,usuariocinco];
+
+let creador1 = new Creador("Gary","Gigax");
+let creador2 = new Creador("Sandy","Petersen");
+let creador3 = new Creador("Pablo","Vega");
+let creador4 = new Creador("Michael","Jackson");
+let creador5 = new Creador("Morgan","Freeman");
+let creador6 = new Creador("Carl","Johnson");
+let creador7 = new Creador("Pedro","Gil");
+let creador8 = new Creador("Fred","Hicks");
+let creador9 = new Creador("Alejandro","Fernández");
+
+let listaCreadores = [creador1,creador2,creador3,creador4,creador5,creador6,creador7,creador8,creador9];
+
+let editorial1 = new Editorial("Wizards of the Coast");
+let editorial2 = new Editorial("Chaosium");
+let editorial3 = new Editorial("Paninos");
+let editorial4 = new Editorial("Mierdijuegos");
+let editorial5 = new Editorial("Ada Its");
+let editorial6 = new Editorial("Rockstar");
+let editorial7 = new Editorial("Holocubierta");
+let editorial8 = new Editorial("Evil Hat");
+let editorial9 = new Editorial("Memeverso");
+
+let listaEditoriales = [editorial1,editorial2,editorial3,editorial4,editorial5,editorial6,editorial7,editorial8,editorial9];
+
+editorial1.incluirJuegos(juego1);
+editorial1.incluirJuegos(juego9);
+
+editorial2.incluirJuegos(juego2);
+editorial2.incluirJuegos(juego8);
+editorial2.incluirJuegos(juego14);
+
+editorial3.incluirJuegos(juego3);
+
+editorial4.incluirJuegos(juego4);
+editorial4.incluirJuegos(juego15);
+
+editorial5.incluirJuegos(juego5);
+
+editorial6.incluirJuegos(juego6);
+
+editorial7.incluirJuegos(juego7);
+
+editorial8.incluirJuegos(juego10);
+editorial8.incluirJuegos(juego11);
+
+editorial9.incluirJuegos(juego12);
+editorial9.incluirJuegos(juego13);
+
+let juego1 = new Juego("DnD", "Gary Gigax", "Fantasía", "Wizards of the Coast");
+let juego2 = new Juego("La llamada de Cthulhu", "Sandy Petersen", "Misterio", "Chaosium");
+let juego3 = new Juego("Weegee", "Pablo Vega", "Ciencia Ficcion", "Paninos");
+let juego4 = new Juego("Heehee", "Michael Jackson", "Terror", "Mierdijuegos");
+let juego5 = new Juego("Referencia Entendida", "Morgan Freeman", "Sci-Fi", "Ada Its");
+let juego6 = new Juego("Aw Shit Here We Go Again", "Carl Johnson", "Estrategia", "Rockstar");
+let juego7 = new Juego("La Marca Del Este", "Pedro Gil", "Fantasía", "Holocubierta");
+let juego8 = new Juego("El Cero", "Pablo Vega", "Misterio", "Chaosium");
+let juego9 = new Juego("La Ciudad de la Locura", "Gary Gigax", "Terror", "Wizards of the Coast");
+let juego10 = new Juego("Fate", "Fred Hicks", "Fantasía", "Evil Hat");
+let juego11 = new Juego("Fate Acelerado", "Fred Hicks", "Estrategia", "Evil Hat");
+let juego12 = new Juego("Pipo", "Alejandro Fernández", "Misterio", "Memeverso");
+let juego13 = new Juego("Yeetus Deletus", "Alejandro Fernández", "Sci-Fi", "Memeverso");
+let juego14 = new Juego("Age of Empires", "Sandy Petersen", "Estrategia", "Chaosium");
+let juego15 = new Juego("Chainmail", "Gary Gigax", "Fantasía", "Mierdijuegos");
 
 
-//Declarar Director
-let directorWhedon = new Director("Joss","Whedon");
-let directorFavreau = new Director("John","Favreau");
-let directorDerrickson = new Director("Scott","Derrickson");
-let directorWan = new Director("James","Wan");
-let directorJackson = new Director("Peter","Jackson");
-let directorSpielberg = new Director("Steven","Spielberg");
-let directorMuschietti = new Director("Andy","Muschietti");
-let directorKleiser = new Director("Randal","Kleiser");
-let directorStahelski = new Director("Chad","Stahelski");
+usuariouno.incluirJuegosComprados(juego1);   /** NOMBRES DE LOS JUEGOS */
+usuariodos.incluirJuegosComprados(juego2);
+usuariotres.incluirJuegosComprados(juego3);
+usuariocuatro.incluirJuegosComprados(juego4);
+usuariocinco.incluirJuegosComprados(juego5);
 
-let listaDirectores = [directorWhedon,directorFavreau,directorDerrickson,directorWan,directorJackson,directorSpielberg,directorMuschietti,directorStahelski];
-let listaClientes = [clientePepe,clienteJorge,clientePaco];
+let juegos= [];
 
-//Declarando Productoras
-let marvelStudio = new Productora("Marvel Studios");
-let newLineCinema = new Productora("New Line Cinema");
-let wingNutFilms = new Productora("WingNut Films");
-let universalStudios = new Productora("Universal Studios");
-let amblingEntertainment = new Productora("Amblin Entertainment");
-let dcFilms = new Productora("DC Films");
-let rsoRecords = new Productora("RSO Records");
-let mjwFilms = new Productora("MJW Films");
-let paquitoStudios = new Productora("PaquitoStudios");
+juegos.push(juego1);
+juegos.push(juego2);
+juegos.push(juego3);
+juegos.push(juego4);
+juegos.push(juego5);
+juegos.push(juego6);
+juegos.push(juego7);
+juegos.push(juego8);
+juegos.push(juego9);
+juegos.push(juego10);
+juegos.push(juego11);
+juegos.push(juego12);
+juegos.push(juego13);
+juegos.push(juego14);
+juegos.push(juego15);
 
-//Declarando peliculas
-let IronMan = new Pelicula("Iron-Man",directorFavreau/*,"30/4/2008"*/,"Superheroes",marvelStudio/*12.95*/);
-let DoctorStrange = new Pelicula("Doctor Strange",directorDerrickson/*,"14/7/1852"*/,"Superheroes",marvelStudio/*,18.95*/);
-let Vengadores = new Pelicula("Los Vengadores",directorWhedon/*,"4/5/2012"*/,"Superheroes",marvelStudio/*,14.95*/);
-let Conjuring = new Pelicula("The Conjuring",directorWan,"Terror",newLineCinema);
-let SeñorAnillos1 = new Pelicula("Señor de los Anillos 1",directorJackson,"Fantasia",wingNutFilms);
-let SeñorAnillos2 = new Pelicula("Señor de los Anillos 2",directorJackson,"Fantasia",wingNutFilms);
-let SeñorAnillos3 = new Pelicula("Señor de los Anillos 3",directorJackson,"Fantasia",wingNutFilms);
-let Tiburon1 = new Pelicula("Tiburón",directorSpielberg,"Terror",universalStudios);
-let JurassicPark = new Pelicula("Jurassic Park",directorSpielberg,"Aventuras",amblingEntertainment);
-let Aquaman = new Pelicula("Aquaman",directorWan,"Superheroes",dcFilms);
-let It = new Pelicula("IT",directorMuschietti,"Terror",newLineCinema);
-let Grease = new Pelicula("Grease",directorKleiser,"Musical",rsoRecords);
-let JohnWick = new Pelicula("John Wick",directorStahelski,"Accion",mjwFilms);
+//Declarar tienda
+let tienda = new Tienda("Tienda","Calle de la Tienda");
+tienda.incluirJuegos(juego1);
+tienda.incluirJuegos(juego2);
+tienda.incluirJuegos(juego3);
+tienda.incluirJuegos(juego4);
+tienda.incluirJuegos(juego5);
+tienda.incluirJuegos(juego6);
+tienda.incluirJuegos(juego7);
+tienda.incluirJuegos(juego8);
+tienda.incluirJuegos(juego9);
+tienda.incluirJuegos(juego10);
+tienda.incluirJuegos(juego11);
+tienda.incluirJuegos(juego12);
+tienda.incluirJuegos(juego13);
+tienda.incluirJuegos(juego14);
+tienda.incluirJuegos(juego15);
 
-//Añadiendo peliculas al array de las Productoras
-marvelStudio.incluirPeliculas(IronMan);
-marvelStudio.incluirPeliculas(DoctorStrange);
-marvelStudio.incluirPeliculas(Vengadores);
+//Añadir juegos comprados a los usuarios
+usuariouno.incluirJuegosComprados(juego1);
+usuariodos.incluirJuegosComprados(juego2);
+usuariotres.incluirJuegosComprados(juego3);
+usuariocuatro.incluirJuegosComprados(juego4);
+usuariocinco.incluirJuegosComprados(juego5);
 
-newLineCinema.incluirPeliculas(Conjuring);
-newLineCinema.incluirPeliculas(It);
+//Añadiendo juegos a los creadores
 
-wingNutFilms.incluirPeliculas(SeñorAnillos1);
-wingNutFilms.incluirPeliculas(SeñorAnillos2);
-wingNutFilms.incluirPeliculas(SeñorAnillos3);
+creador1.incluirJuegos(juego1);
+creador1.incluirJuegos(juego9);
+creador1.incluirJuegos(juego15);
 
-universalStudios.incluirPeliculas(Tiburon1);
+creador2.incluirJuegos(juego2);
+creador2.incluirJuegos(juego14);
 
-amblingEntertainment.incluirPeliculas(JurassicPark);
+creador3.incluirJuegos(juego3);
+creador3.incluirJuegos(juego8);
 
-dcFilms.incluirPeliculas(Aquaman);
+creador4.incluirJuegos(juego4);
 
-rsoRecords.incluirPeliculas(Grease);
+creador5.incluirJuegos(juego5);
 
-mjwFilms.incluirPeliculas(JohnWick);
+creador6.incluirJuegos(juego6);
 
-//Array de Productoras
+creador7.incluirJuegos(juego7);
 
-let listaProductoras = [marvelStudio,newLineCinema,wingNutFilms,universalStudios,amblingEntertainment,dcFilms,rsoRecords,mjwFilms,paquitoStudios];
+creador8.incluirJuegos(juego10);
+creador8.incluirJuegos(juego11);
 
-//Array de peliculas
-let peliculas = [];
-
-peliculas.push(IronMan);
-peliculas.push(DoctorStrange);
-peliculas.push(Vengadores);
-peliculas.push(Conjuring);
-peliculas.push(SeñorAnillos1);
-peliculas.push(SeñorAnillos2);
-peliculas.push(SeñorAnillos3);
-peliculas.push(Tiburon1);
-peliculas.push(JurassicPark);
-peliculas.push(Aquaman);
-peliculas.push(It);
-peliculas.push(Grease);
-peliculas.push(JohnWick);
-
-//Declarar videoclub
-let videoclub = new Videoclub("PAQUITO","Calle de la Piruleta, Nº7");
-videoclub.incluirPeliculas(IronMan);
-videoclub.incluirPeliculas(DoctorStrange);
-videoclub.incluirPeliculas(Vengadores);
-videoclub.incluirPeliculas(Conjuring);
-videoclub.incluirPeliculas(SeñorAnillos1);
-videoclub.incluirPeliculas(SeñorAnillos2);
-videoclub.incluirPeliculas(SeñorAnillos3);
-videoclub.incluirPeliculas(Tiburon1);
-videoclub.incluirPeliculas(JurassicPark);
-videoclub.incluirPeliculas(Aquaman);
-videoclub.incluirPeliculas(It);
-videoclub.incluirPeliculas(Grease);
-videoclub.incluirPeliculas(JohnWick);
-
-//Añadir peliculas favoritas a los clientes
-
-clientePepe.incluirPeliculasFav(IronMan);
-clientePepe.incluirPeliculasFav(Conjuring);
-clienteJorge.incluirPeliculasFav(DoctorStrange);
-clienteJorge.incluirPeliculasFav(Vengadores);
-clienteJorge.incluirPeliculasFav(Tiburon1);
-clienteJorge.incluirPeliculasFav(It);
-clienteJorge.incluirPeliculasFav(Aquaman);
-clienteJorge.incluirPeliculasFav(SeñorAnillos2);
-
-
-//Añadiendo pelis a directores
-
-directorWhedon.incluirPeliculas(Vengadores);
-
-directorFavreau.incluirPeliculas(IronMan);
-
-directorDerrickson.incluirPeliculas(DoctorStrange);
-
-directorWan.incluirPeliculas(Conjuring);
-directorWan.incluirPeliculas(Aquaman);
-
-directorJackson.incluirPeliculas(SeñorAnillos1);
-directorJackson.incluirPeliculas(SeñorAnillos2);
-directorJackson.incluirPeliculas(SeñorAnillos3);
-
-directorSpielberg.incluirPeliculas(Tiburon1);
-directorSpielberg.incluirPeliculas(JurassicPark);
-
-directorMuschietti.incluirPeliculas(It);
-
-directorKleiser.incluirPeliculas(Grease);
-
-directorStahelski.incluirPeliculas(JohnWick);
-
-//CREACION DE VOTOS
-
-let voto1 = new Votos(clientePepe,IronMan,"like","");
-let voto2 = new Votos(clienteJorge,IronMan,"like","");
-let voto3 = new Votos(clientePepe,SeñorAnillos1,"dislike","");
-let voto4 = new Votos(clienteJorge,Aquaman,"dislike","");
-let voto5 = new Votos(clienteJorge,IronMan,"dislike","");
-let voto6 = new Votos(clienteJorge,DoctorStrange,"dislike","");
-let voto7 = new Votos(clienteJorge,IronMan,"like","");
-let voto8 = new Votos(clienteJorge,Tiburon1,"like","");
-let voto9 = new Votos(clienteJorge,Conjuring,"like","");
-let voto10 = new Votos(clientePepe,IronMan,"like","");
-let voto11 = new Votos(clientePepe,Vengadores,"like","");
-let voto12 = new Votos(clientePepe,IronMan,"dislike","");
-let voto13 = new Votos(clientePepe,JurassicPark,"like","");
-let voto14 = new Votos(clientePepe,IronMan,"like","");
-let voto15 = new Votos(clientePepe,JohnWick,"like","");
-let voto16 = new Votos(clienteJorge,JohnWick,"like","");
-
-
-
-mostrarPeliculasHTML(peliculas);
-//Declarar Votos
-// let voto1 = new votos(3,"Ezta peli no me a gustadio.",cliente1,Vengadores);
-// let voto2 = new votos(5,"Me ha encatado este libro si señor",cliente1,IronMan);
-
-// console.log(videoclub);
-// console.log(cliente2);
-// console.log(IronMan);
-// console.log(Whedon);
-// console.log(voto1);
+creador9.incluirJuegos(juego12);
+creador9.incluirJuegos(juego13);
