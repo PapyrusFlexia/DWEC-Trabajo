@@ -63,7 +63,7 @@ function validarOpcionSeleccionada(inputOpcion,divErrores){
 		erroneo(inputOpcion,divErrores,'Debe seleccionar una opcion<br>');
 	}else{
 		validado = true;
-		erroneo(inputOpcion);
+		correcto(inputOpcion);
 	}
 	return esCorrecto;
 }
@@ -108,7 +108,7 @@ function validarNombreUsuario(inputNombreUsuario,divErrores){
 		erroneo(inputNombreUsuario,divErrores,'El nombre del usuario es obligatorio');
 	}else{
 		validado = true;
-		erroneo(inputNombreUsuario);
+		correcto(inputNombreUsuario);
 	}
 	return validado;
 }
@@ -123,10 +123,10 @@ function validarGenero(inputGenero,divErrores){
 	let generoValidado = quitarEspaciosArray(inputGenero.value);
 
 	if(generoValidado === null || generoValidado === ""){
-		marcarInputComoErroneo(inputGenero,divErrores,'El genero es erroneo');
+		erroneo(inputGenero,divErrores,'El genero es erroneo');
 	}else{
 		validado = true;
-		marcarInputComoCorrecto(inputGenero);
+		correcto(inputGenero);
 	}
 	return validado;
 }
@@ -151,7 +151,6 @@ function correcto(input){
 	if(spanError.length > 0){
 		for (let i = 0; i < spanError.length; i++) {
 			divErrores.removeChild(spanError[i]);
-			
 		}
 	}
 }
