@@ -243,11 +243,29 @@ class Juego{
 		return contiene;
 	}
 	
-	contieneTipo(tipo){
+	contieneGenero(genero){
 		let contiene = false;
-		let tipoEncontrado = quitarEspaciosArrays(tipo);
-		if(tipoEncontrado != null){
-			contiene = this.tipo.toUpperCase().includes(tipoEncontrado);
+		let generoEncontrado = quitarEspaciosArrays(genero);
+		if(generoEncontrado != null){
+			contiene = this.genero.toUpperCase().includes(generoEncontrado);
+		}
+		return contiene;
+	}
+
+	contieneEditorial(editorial){
+		let contiene = false;
+		let editorialEncontrada = quitarEspaciosArrays(editorial);
+		if(editorialEncontrada !== null){
+			contiene = this.editorial.toUpperCase().includes(editorialEncontrada);
+		}
+		return contiene;
+	}
+
+	contieneCreador(creador){
+		let contiene = false;
+		let creadorEncontrado = quitarEspaciosArrays(creador);
+		if(creadorEncontrado !== null){
+			contiene = this.creador.toUpperCase().includes(creadorEncontrado);
 		}
 		return contiene;
 	}
@@ -293,7 +311,3 @@ class Creador extends Persona{
 		return `${this.nombre} ${this.apellidos}`;
 	}
 }
-
-
-
-

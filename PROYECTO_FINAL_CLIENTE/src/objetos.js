@@ -79,7 +79,7 @@ usuariotres.incluirJuegosComprados(juego3);
 usuariocuatro.incluirJuegosComprados(juego4);
 usuariocinco.incluirJuegosComprados(juego5);
 
-let juegos= [];
+let juegos = [];
 
 juegos.push(juego1);
 juegos.push(juego2);

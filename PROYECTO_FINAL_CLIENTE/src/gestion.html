@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head lang="es_ES">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Gestion</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <header> <!--Cabecera con todos los links a otras páginas-->
+        <nav>
+            <ul>
+                <li><a href="busqueda.html">Página de Búsqueda</a></li>
+                <li><a href="edicion.html">Página de Edición</a></li>
+                <li><a href="gestion.html">Página de Gestión</a></li>
+                <li><a href="usuario.html">Página de Usuario</a></li>        
+            </ul>
+        </nav>
+    </header>
+    <h1>Gestión de juegos</h1>
+    <main id="formGest">
+        <section class="formulario">
+            <form action="">
+                <fieldset>
+                <legend>Obtener 10 elementos</legend>
+                <div class="diezElementos">
+                        <label for="creadorDiez">Creador Juego</label>
+                        <input type="search" id="creadorDiez" name="creadorDiez" placeholder="Creador juego">
+                        <label for="editorialDiez">Editorial Juego</label>
+                        <input type="search" id="editorialDiez" name="editorialDiez" placeholder="Editorial juego">
+                    <button type="button" class="botonJuegosDiez" id="botonJuegosDiez">BUSCAR</button>
+                </div>
+                <div class="errores" id="erroresJuegosDiez">
+                </div>
+                </fieldset>
+            </form>
+        </section>
+        <section class="formulario">
+            <form action="">
+                <fieldset>
+                <legend>Filtrar mejor valorado</legend>
+                <div class="mejorValorado">
+                    <label for="editorialValorado">Editorial Juego</label>
+                    <input type="search" id="editorialValorado" name="editorialValorado" placeholder="Editorial juego">
+                    <button type="button" class="botonJuegoValorado" id="botonJuegoValorado">BUSCAR</button>
+                </div>
+                <div class="errores" id="erroresJuegoValorado">
+                </div>
+                </fieldset>
+            </form>
+        </section>
+        <section class="formulario">
+            <form action="">
+                <fieldset>
+                <legend>Ordenar según campo</legend>
+                <div class="ordenar">
+                        <label for="ordenarCampo">Selecciona campo a ordenar</label>
+                        <select id="ordenarCampo" name="ordenarCampo">
+                            <option value="">-Seleccionar-</option>
+                            <option value="título">Título</option>
+                            <option value="género">Género</option>
+                            <option value="creador">Creador</option>
+                            <option value="editorial">Editorial</option>
+                        </select>
+                    <button type="button" class="botonOrdenarCampo" id="botonOrdenarCampo">BUSCAR</button>
+                </div>
+                <div class="errores" id="erroresOrdenarCampo">
+                </div>
+                </fieldset>
+            </form>
+        </section>
+        <section class="formulario">
+            <form action="">
+                <fieldset>
+                <legend>Longitud Editorial</legend>
+                <div class="longitudEd">
+                    <label for="longitudEditorial">Longitud texto Editorial</label>
+                    <input type="number" id="longitudEditorial" name="longitudEditorial">
+                    <button type="button" class="botonLongitudEditorial" id="botonLongitudEditorial">BUSCAR</button>
+                </div>
+                <div class="errores" id="erroresLongitudEditorial">
+                </div>
+                </fieldset>
+            </form>
+        </section>
+        <section>
+            <h1>Juegos</h1>
+            <div id="juegosMostrar">
+                    
+            </div>
+        </section>
+    </main>
+    
+    
+    <script src="funcionalidades.js" cache="false" defer></script>
+    <script src="gestion.js" cache="false" defer></script>
+    <script src="clases.js" cache="false" defer></script>
+    <script src="objetos.js" cache="false" defer></script>
+</body>
+</html>
