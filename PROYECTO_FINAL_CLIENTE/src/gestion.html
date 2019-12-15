@@ -6,6 +6,8 @@
     <title>Gestion</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="estilo.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
 </head>
 <body>
     <header> <!--Cabecera con todos los links a otras páginas-->
@@ -25,7 +27,7 @@
                 <fieldset>
                 <legend>Obtener 10 elementos</legend>
                 <div class="diezElementos">
-                        <label for="creadorDiez">Creador Juego</label>
+                        <label for="creadorDiez">Apellido creador Juego</label>
                         <input type="search" id="creadorDiez" name="creadorDiez" placeholder="Creador juego">
                         <label for="editorialDiez">Editorial Juego</label>
                         <input type="search" id="editorialDiez" name="editorialDiez" placeholder="Editorial juego">
@@ -41,8 +43,15 @@
                 <fieldset>
                 <legend>Filtrar mejor valorado</legend>
                 <div class="mejorValorado">
-                    <label for="editorialValorado">Editorial Juego</label>
-                    <input type="search" id="editorialValorado" name="editorialValorado" placeholder="Editorial juego">
+                    <label for="generoValorado">Genero Juego</label>
+                    <select id="generoValorado" name="generoValorado">
+                        <option value="">-Seleccionar-</option>
+                        <option value="Fantasía">Fantasía</option>
+                        <option value="Misterio">Misterio</option>
+                        <option value="Ciencia Ficcion">Ciencia Ficcion</option>
+                        <option value="Sci-Fi">Sci-Fi</option>
+                        <option value="Terror">Terror</option>
+                    </select>
                     <button type="button" class="botonJuegoValorado" id="botonJuegoValorado">BUSCAR</button>
                 </div>
                 <div class="errores" id="erroresJuegoValorado">
@@ -58,10 +67,10 @@
                         <label for="ordenarCampo">Selecciona campo a ordenar</label>
                         <select id="ordenarCampo" name="ordenarCampo">
                             <option value="">-Seleccionar-</option>
-                            <option value="título">Título</option>
-                            <option value="género">Género</option>
-                            <option value="creador">Creador</option>
-                            <option value="editorial">Editorial</option>
+                            <option value="titulo">titulo</option>
+                            <option value="genero">genero</option>
+                            <option value="creador">creador</option>
+                            <option value="editorial">editorial</option>
                         </select>
                     <button type="button" class="botonOrdenarCampo" id="botonOrdenarCampo">BUSCAR</button>
                 </div>

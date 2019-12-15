@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head lang="es_ES">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Usuario</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="estilo.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="busqueda.html">Página de Búsqueda</a></li>
+                <li><a href="edicion.html">Página de Edición</a></li>
+                <li><a href="gestion.html">Página de Gestión</a></li>
+                <li><a href="usuario.html">Página de Usuario</a></li>        
+            </ul>
+        </nav>
+    </header>
+    <h1>Configuración de usuarios</h1>
+    <main id="formUsuario">
+        <section class="formulario">
+            <form action="">
+                <fieldset>
+                    <legend>Votar y opinar sobre un elemento</legend>
+                    <div class="votarOpinar">
+                        <label for="nombreUsuarioOpinion">Nombre de Usuario</label>
+                        <input type="text" name="nombreUsuarioOpinion" id="nombreUsuarioOpinion" class="inputFormulario" placeholder="Nombre de Usuario"><br>
+
+                        <label for="juegoOpinar">Juego opinar</label>
+                        <select id="juegoOpinar" name="juegoOpinar">
+                                <option value="">-Seleccionar-</option>
+                                
+                        </select><br>
+                        
+                        Voto
+                        <label><input type="radio" name="voto" id="voto" value="upvote">Upvote</label>
+                        <label><input type="radio" name="voto" id="voto" value="downvote">Downvote<br></label>
+
+                        <label for="inputComentario">Comentario</label><br>
+                        <textarea rows="4" cols="30" name="inputComentarioOpinar" id="inputComentarioOpinar" class="inputFormulario" placeholder="Escriba un comentario"></textarea>
+
+                        <button type="button" class="realizarComentarioOpinar" id="realizarComentarioOpinar">Realizar Comentario</button>
+
+                        <div class="errores" id="erroresComentarioJuego">
+                        </div>
+                    </div>
+                </fieldset>
+            </form>    
+        </section>
+
+        <section class="formulario">
+            <fieldset>
+                <legend>Juegos similares a comprados del usuario</legend>
+                <div class="juegosVotados">
+                    <label for="usuarioJuegosSimilares">Nombre de Usuario</label>
+                    <input type="search" name="usuarioJuegosSimilares" id="usuarioJuegosSimilares" class="inputFormulario" placeholder="Nombre de Usuario">
+                    <button type="button" class="botonJuegosSimilares" id="botonJuegosSimilares">BUSCAR</button>
+                </div>
+
+                <div class="errores" id="erroresjuegosSimilares">
+
+
+                </div>
+            </fieldset>
+        </section>
+        
+        <section class="formulario">
+            <fieldset>
+                <legend>Funcion devolver elementos votados por usuario</legend>
+                <div class="juegosSimilares">
+                    <label for="nombreUsuarioVotado">Nombre de Usuario</label>
+                    <input type="search" name="usuarioJuegosVotados" id="usuarioJuegosVotados" class="inputFormulario" placeholder="Nombre de Usuario">
+                    <button type="button" class="botonVotados" id="botonVotados">BUSCAR</button>
+                </div>
+                <div class="errores" id="erroresJuegosVotados">
+                </div>
+            </fieldset>
+        </section>
+
+        <section class="form">
+                <fieldset>
+                    <legend>Devolver juegos comprados del usuario</legend>
+                    <div class="devolverJuegos">
+                        <label for="usuarioDevolverJuego">Nombre de Usuario</label>
+                        <input type="search" name="usuarioDevolverJuego" id="usuarioDevolverJuego" class="inputFormulario" placeholder="Nombre de Usuario">
+                        <button type="button" class="botonMostrarJuego" id="botonMostrarJuego">Mostrar juegos</button>
+                        <label for="juegoComprado">Juegos en adquisición</label>
+                        <select id="juegoComprado" name="juegoComprado">
+                                <option value="">-Seleccionar-</option>
+                                
+                        </select><br>
+                        <button type="button" class="botonDevolverJuego" id="botonDevolverJuego">DEVOLVER</button>
+                    </div>
+    
+                    <div class="errores" id="erroresDevolverJuego">
+    
+    
+                    </div>
+                </fieldset>
+            </section>
+
+        <section>
+            <h1>Juegos</h1>
+            <div id="juegosMostrar">
+                    
+            </div>
+        </section>
+    </main>
+    
+    <script src="funcionalidades.js" cache="false" defer></script>
+    <script src="usuario.js" cache="false" defer></script>
+    <script src="clases.js" cache="false" defer></script>
+    <script src="objetos.js" cache="false" defer></script>
+</body>
+</html>

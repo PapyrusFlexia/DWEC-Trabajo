@@ -8,6 +8,7 @@ let erroresLongitudEditorial = document.getElementById("erroresLongitudEditorial
  */
 function filtrarCreadorEditorialDevolverDiez(){
     let inputCreador = document.getElementById("creadorDiez");
+    
     let inputEditorial = document.getElementById("editorialDiez");
     let creador = inputCreador.value;
     let editorial = inputEditorial.value;
@@ -23,44 +24,48 @@ function filtrarCreadorEditorialDevolverDiez(){
     }
 }
 
-function editorialMejorValorada(){
-    let inputEditorial = document.getElementById("editorialValorado");
-    let editorial = inputEditorial.value;
-    let juegosEditorial = [];
+/**
+ * Funcion que devuelve el juego mejor valorado de cada genero
+ */
+function generoMejorValorado(){
+    let inputGenero = document.getElementById("generoValorado");
+    let genero = inputGenero.value;
+    console.log(genero);
+    let juegosGenero = [];
     let juegoResultado = [];
     vaciarDivErrores(erroresJuegoMasVotado);
-    let esEditorialCorrecta = validarNombreEditorial(inputEditorial,erroresJuegoMasVotado);
-
-    if(esEditorialCorrecta){
-
+    let esGeneroCorrecto = validarGenero(inputGenero,erroresJuegoMasVotado);
+    if(esGeneroCorrecto){
         for (let i = 0; i < juegos.length; i++) {
-            if(juegos[i].editorial.toUpperCase() === editorial.toUpperCase()){
-                if(!juegosEditorial.includes(juegos[i])){
-                    juegosEditorial.push(juegos[i]);
+            if(juegos[i].genero.toUpperCase() === genero.toUpperCase()){
+                if(!juegosGenero.includes(juegos[i])){
+                    juegosGenero.push(juegos[i]);
                 }
             }
-            
         }
-        
-        juegosEditorial = juegosEditorial.sort(function(juego1,juego2){
+        juegosGenero = juegosGenero.sort(function(juego1,juego2){
             return juego1.likes - juego2.likes;
         });
-
-        juegoResultado.push(juegosEditorial[0]) ;
+        juegoResultado.push(juegosGenero[0]) ;
     }
 
     mostrarJuegosHTML(juegoResultado);
 }
 
+/**
+ * Funcion que ordena los juegos dependiendo del campo que selecciones
+ */
 function ordenarPorCampo(){
     let inputOrdenar = document.getElementById("ordenarCampo");
     let ordenar = inputOrdenar.value;
     let juegosOrdenados = [];
     vaciarDivErrores(erroresOrdenarPor);
+    //Es necesario validar la opción seleccionada
     let ordenarValido = validarOpcionSeleccionada(inputOrdenar,erroresOrdenarPor);
 
     if(ordenarValido){
         juegosOrdenados = juegos;
+        //Los juegos se ordenan comparando un juego con el siguiente y viendo si alfabéticamente va antes o después
         if(ordenar === "titulo"){
             juegosOrdenados = juegosOrdenados.sort(function(juego1,juego2){
                 if(juego1.titulo.toLowerCase() > juego2.titulo.toLowerCase()){
@@ -108,6 +113,9 @@ function ordenarPorCampo(){
     mostrarJuegosHTML(juegosOrdenados);
 }
 
+/**
+ * Funcion que devuelve juegos cuyas editoriales tengan una longitud mayor o igual a la escrita
+ */
 function filtrarPorLongitudEditorial(){
     let inputLongitud = document.getElementById("longitudEditorial");
     let longitud = inputLongitud.value;
@@ -116,7 +124,8 @@ function filtrarPorLongitudEditorial(){
     let longitudValida = validarLongitud(inputLongitud, erroresLongitudEditorial);
     if(longitudValida){
         juegos.forEach(juego => {
-            if(juego.editorial.length >= longitud){
+            //Si el nombre de la editorial es mayor o igual a la longitud pasa el if
+            if(juego.editorial.nombre.length >= longitud){
                 if(!juegosResultado.includes(juego)){
                     juegosResultado.push(juego);
                 }
@@ -128,7 +137,7 @@ function filtrarPorLongitudEditorial(){
 }
 
 /**
- * Funcion encargada de devolver el array de juegos
+ * Funcion encargada de devolver el array de juegos y devuelven los juegos resultantes
  * @param {String} creador es el creador del juego
  * @param {String} editorial es la editorial
  */
@@ -145,9 +154,10 @@ let botonLongitudEditorial = document.getElementById("botonLongitudEditorial");
 
 //Eventos
 botonJuegosDiez.addEventListener("click", filtrarCreadorEditorialDevolverDiez);
-botonJuegoValorado.addEventListener("click", editorialMejorValorada);
+botonJuegoValorado.addEventListener("click", generoMejorValorado);
 botonOrdenarCampo.addEventListener("click", ordenarPorCampo);
 botonLongitudEditorial.addEventListener("click", filtrarPorLongitudEditorial);
 
 document.addEventListener("DOMContentLoaded", function(event) {
+    mostrarJuegosHTML(juegos);
 });
