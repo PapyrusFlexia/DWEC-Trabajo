@@ -57,7 +57,7 @@ function validarJuegoCambiado(inputJuego, divErrores){
 
 function validarOpcionSeleccionada(inputOpcion,divErrores){
 	let validado = false;
-	let opcionValidada = quitarEspaciosArrays(inputOpcion.value);
+	let opcionValidada = quitarEspaciosArrays(inputOpcion.value); ///////////////AÑADIDO .VALUE
 
 	if(opcionValidada === null || opcionValidada.length <= 1){
 		erroneo(inputOpcion,divErrores,'Debe seleccionar una opcion<br>');
@@ -68,13 +68,13 @@ function validarOpcionSeleccionada(inputOpcion,divErrores){
 	return validado;
 }
 
-function validarNombreCreador(inputNombreCreador){
+function validarNombreCreador(inputNombreCreador, divErrores){ ////////AÑADIDO DIV ERRORES
 	let validado = false;
-    let nombreValidado = quitarEspaciosArrays(inputNombreCreador);
+    let nombreValidado = quitarEspaciosArrays(inputNombreCreador.value);
     let regex = /^[A-Z]{2,}$/g
 
 	if(!regex.test(nombreValidado)){
-		erroneo(inputNombreCreador, 'No se ha validado el nombre');
+		erroneo(inputNombreCreador, divErrores, 'No se ha validado el nombre del creador');
 	}else{
 		validado = true;
 		correcto(inputNombreCreador);
@@ -82,12 +82,13 @@ function validarNombreCreador(inputNombreCreador){
 	return validado;
 }
 
-function validarApellidoCreador(inputApellidoCreador){
+
+function validarApellidoCreador(inputApellidoCreador, divErrores){
 	let validado = false;
-	let apellidoValidado = quitarEspaciosArrays(inputApellidoCreador);
+	let apellidoValidado = quitarEspaciosArrays(inputApellidoCreador.value); /////////////////////AÑADIDO .VALUE
 
 	if(apellidoValidado === undefined || apellidoValidado.length < 1){
-		erroneo(inputApellidoCreador, 'No se ha validado el apellido');
+		erroneo(inputApellidoCreador, divErrores, 'No se ha validado el apellido del creador');
 	}else{
 		validado = true;
 		correcto(inputApellidoCreador);
@@ -120,7 +121,7 @@ function validarNombreUsuario(inputNombreUsuario,divErrores){
  */
 function validarGenero(inputGenero,divErrores){
 	let validado = false;
-	let generoValidado = quitarEspaciosArray(inputGenero.value);
+	let generoValidado = quitarEspaciosArrays(inputGenero.value); ////////////////////// AÑADIDO VALUE
 
 	if(generoValidado === null || generoValidado === ""){
 		erroneo(inputGenero,divErrores,'El genero es erroneo');
@@ -133,7 +134,7 @@ function validarGenero(inputGenero,divErrores){
 
 function validarNombreEditorial(inputNombreEditorial, divErrores){
 	let validado = false;
-	let editorialValidado = quitarEspaciosArrays(inputNombreEditorial);
+	let editorialValidado = quitarEspaciosArrays(inputNombreEditorial.value); ////////////////////// AÑADIDO VALUE
 
 	if(editorialValidado === null || editorialValidado.length < 2){
 		erroneo(inputNombreEditorial, divErrores, 'No se ha validado el nombre de la editorial');
@@ -145,7 +146,7 @@ function validarNombreEditorial(inputNombreEditorial, divErrores){
 }
 
 // FUNCION PARA MARCAR INPUTS CORRECTOS
-function correcto(input){
+function correcto(input, divErrores){  ///////////////////////// AÑADIDO DIV ERRORES
 	input.className  = 'correcto';
 	let spanError = document.querySelectorAll(`#${input.id} + span`);
 	if(spanError.length > 0){

@@ -61,7 +61,7 @@ function cambiarUsuarioActual(){
 
 		if(juego !== undefined){
 			juego.usuario = nuevoUsuario;
-			nuevoUsuario.incluirJuegos(juego);
+			nuevoUsuario.incluirJuegosComprados(juego);                  //////////////// cambiado a incluiirjuegoscomprados
 			let htmlJuegos = document.getElementById("juegosMostrar")
 			seleccionarUsuario = htmlJuegos.querySelector(`div[data-identificador = ${inputJuego.value}]`);
 			let usuarioActual = seleccionarUsuario.querySelector("p[data-identificador = usuario]");
@@ -101,7 +101,7 @@ function cambiarEditorialActual(){
 
 
 //CONSIGUIENDO BOTON DEL FORMULARIO
-let botonNuevoJuego = document.getElementById("añadirEditorial");
+let botonNuevoJuego = document.getElementById("añadirJuegoNuevo"); ////////////// CAMBIADO A AÑADIR JUEGO NUEVO
 let botonCambiarUsuario = document.getElementById("cambiarUsuario");
 let botonCambiarEditorial = document.getElementById("cambiarEditorial");
 let inputsText = document.getElementsByClassName("inputForm");
