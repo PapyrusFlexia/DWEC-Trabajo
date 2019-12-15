@@ -6,3 +6,8 @@ Simple Time Tracker - Herramienta Usada
 - Pablo Vega: busqueda.js - 5 horas | edicion.js - 8 horas
 - Ambos: clases.js - 5 horas | objetos.js - 3 horas
 - Comentarios, orden y limpiza - 1 hora
+
+Requisitos Generales cumplidos por cada función:
+- Búsqueda (busqueda.js):
+Funcion que filtra la búsqueda por título y por género
+Línea 10
