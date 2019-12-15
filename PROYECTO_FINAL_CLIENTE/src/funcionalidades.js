@@ -50,7 +50,7 @@ function validarJuegoCambiado(inputJuego, divErrores){
 		erroneo(inputJuego, divErrores, 'No se ha validado el nombre de la editorial');
 	}else{
 		validado = true;
-		correcto(inputJuego);
+		correcto(inputNombreEditorial);
 	}
 	return validado;
 }
@@ -102,7 +102,7 @@ function validarApellidoCreador(inputApellidoCreador){
  */
 function validarNombreUsuario(inputNombreUsuario,divErrores){
 	let validado = false;
-	let nombreValidado = quitarEspaciosArrays(inputNombreUsuario.value);
+	let nombreValidado = quitarEspaciosArray(inputNombreUsuario.value);
 	let exp = /^[A-Z]{2,}$/g
 	if(!exp.test(nombreValidado)){
 		erroneo(inputNombreUsuario,divErrores,'El nombre del usuario es obligatorio');
@@ -131,12 +131,12 @@ function validarGenero(inputGenero,divErrores){
 	return validado;
 }
 
-function validarNombreEditorial(inputNombreEditorial){
+function validarNombreEditorial(inputNombreEditorial, divErrores){
 	let validado = false;
 	let editorialValidado = quitarEspaciosArrays(inputNombreEditorial);
 
-	if(editorialValidado === undefined || editorialValidado.length < 2){
-		erroneo(inputNombreEditorial, 'No se ha validado el nombre de la editorial');
+	if(editorialValidado === null || editorialValidado.length < 2){
+		erroneo(inputNombreEditorial, divErrores, 'No se ha validado el nombre de la editorial');
 	}else{
 		validado = true;
 		correcto(inputNombreEditorial);
@@ -155,14 +155,14 @@ function correcto(input){
 	}
 }
 
-function erroneo(input, error, divErrores){
+function erroneo(input, divErrores, textoError){
 	input.className  = 'incorrecto';
-	let padre = input.parentNode; //quitar
+	let padre = input.parentNode;
 	let spanError = document.querySelectorAll(`#${input.id} + span`);
 	if(spanError.length === 0){
 		let spanNuevo = document.createElement("span");
 		spanNuevo.className = 'error';
-		spanNuevo.innerHTML = error;
+		spanNuevo.innerHTML = textoError;
 		divErrores.appendChild(spanNuevo.cloneNode(true));
 	}
 }

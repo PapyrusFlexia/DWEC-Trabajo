@@ -1,44 +1,3 @@
-class Tienda{
-
-	constructor(nombre,direccion){
-		this.nombre = nombre;
-		this.direccion = direccion;
-		this.juegos = [];
-	}
-
-	get nombre(){
-		return `${this._nombre}`;
-	}
-
-	set nombre(nombre){
-		this._nombre=nombre;
-	}
-
-	get juegos(){
-		return this._juegos;
-	}
-
-	set juegos(juegos){
-		this._juegos=juegos;
-	}
-	añadirJuegos(juegos){
-		this._juegos.push(juego);
-	}
-
-	get direccion(){
-		return `${this._direccion}`;
-	}
-
-	set direccion(direccion){
-		this._direccion=direccion;
-	}
-
-	incluirJuegos(juego){
-		this._juegos.push(juego);
-	}
-
-}
-
 class Persona{
 
 	constructor(nombre,apellidos){
@@ -66,7 +25,7 @@ class Persona{
 
 class Usuario extends Persona{
 
-	constructor(nombre, apellidos){
+	constructor(nombre,apellidos){
 		super(nombre,apellidos);
 		this.juegosComprados = [];
 		this.votos = [];
@@ -96,11 +55,21 @@ class Usuario extends Persona{
 		this._juegosComprados=juegos;
 	}
 
-	
-	incluirJuegosComprados(juego){
-		this._juegosComprados.push(juego);
+	get votos(){
+		return this._votos;
 	}
 
+	set votos(votos){
+		this._votos=votos;
+	}
+	/**
+	 * Funcion que añade un juego a juegosComprados
+	 * @param {Juegos} juego
+	 */
+	incluirJuegosComprados(juego){
+		this.juegosComprados.push(juego);
+	}
+	
 	contieneNombre(nombre){
 		let contiene = false;
 		let nombreEncontrado = quitarEspaciosArrays(nombre);
@@ -109,6 +78,100 @@ class Usuario extends Persona{
 		}
 		return contiene;
 	}
+	/**
+	 * Funcion que añade un voto a votos
+	 * @param {Voto} voto
+	 */
+	incluirVoto(voto){
+		this._votos.push(voto);
+	}
+}
+
+class Creador extends Persona{
+
+	constructor(nombre,apellidos){
+		super(nombre,apellidos);
+		this.juegos = [];
+	}
+
+	get nombre(){
+		return `${this._nombre}`;
+	}
+
+	set nombre(nombre){
+		this._nombre=nombre;
+	}
+
+	get apellidos(){
+		return `${this._apellidos}`;
+	}
+
+	set apellidos(apellidos){
+		this._apellidos=apellidos;
+	}
+
+	get juegos(){
+		return this._juegos;
+	}
+
+	set juegos(juegos){
+		this._juegos=juegos;
+	}
+	/**
+	 * Funcion que añade un juego a juegos
+	 * @param {Juegos} juego 
+	 */
+	incluirJuegos(juego){
+		this._juegos.push(juego);
+	}
+
+	toString(){
+		return `${this.nombre} ${this.apellidos}`;
+	}
+}
+
+class Tienda{
+
+	constructor(nombre,direccion){
+		this.nombre = nombre;
+		this.direccion = direccion;
+		this.juegos = [];
+	}
+
+	get nombre(){
+		return `${this._nombre}`;
+	}
+
+	set nombre(nombre){
+		this._nombre=nombre;
+	}
+
+	get juegos(){
+		return this._juegos;
+	}
+
+	set juegos(juegos){
+		this._juegos=juegos;
+	}
+	añadirJuegos(juego){
+		this._juegos.push(juego);
+	}
+
+	get direccion(){
+		return `${this._direccion}`;
+	}
+
+	set direccion(direccion){
+		this._direccion=direccion;
+	}
+	/**
+	 * Funcion que añade un juego a juegos
+	 * @param {Juego} juego 
+	 */
+	incluirJuegos(juego){
+		this._juegos.push(juego);
+	}
+
 }
 
 class Editorial{
@@ -133,7 +196,10 @@ class Editorial{
 	set juegos(juegos){
 		this._juegos=juegos;
 	}
-	
+	/**
+	 * Funcion que añade un juego a juegos
+	 * @param {Juego} juego 
+	 */
 	incluirJuegos(juego){
 		this._juegos.push(juego);
 	}
@@ -154,12 +220,14 @@ class Editorial{
 
 class Juego{
 
-	
 	constructor(titulo,creador,genero,editorial){
 		this.titulo = titulo;
 		this.creador = creador;
 		this.genero = genero;
 		this.editorial = editorial;
+		this.votos = [];
+		this.likes = 0;
+		this.dislikes = 0;
 	}
 
 	get titulo(){
@@ -194,8 +262,12 @@ class Juego{
 		this._genero=genero;
 	}
 
-	incluirJuegosComprados(juego){
-		this._juegosComprados.push(juego);
+	get votos(){
+		return this._votos;
+	}
+
+	set votos(votos){
+		this._votos=votos;
 	}
 
 	mostrarEnHTML(nodoHTML){
@@ -232,7 +304,6 @@ class Juego{
 		bloque.append(contadorDislikes);
 		nodoHTML.appendChild(bloque);
 	}
-	
 
 	contieneTitulo(titulo){
 		let contiene = false;
@@ -252,62 +323,91 @@ class Juego{
 		return contiene;
 	}
 
-	contieneEditorial(editorial){
-		let contiene = false;
-		let editorialEncontrada = quitarEspaciosArrays(editorial);
-		if(editorialEncontrada !== null){
-			contiene = this.editorial.toUpperCase().includes(editorialEncontrada);
-		}
-		return contiene;
-	}
-
 	contieneCreador(creador){
 		let contiene = false;
 		let creadorEncontrado = quitarEspaciosArrays(creador);
 		if(creadorEncontrado !== null){
-			contiene = this.creador.toUpperCase().includes(creadorEncontrado);
+			contiene = this.creador.apellidos.toUpperCase().includes(creadorEncontrado);
 		}
 		return contiene;
 	}
-	
+
+	contieneEditorial(editorial){
+		let contiene = false;
+		let editorialEncontrada = quitarEspaciosArrays(editorial);
+		if(editorialEncontrada !== null){
+			contiene = this.editorial.nombre.toUpperCase().includes(editorialEncontrada);
+		}
+		return contiene;
+	}
+
+	/**
+	 * Funcion que añade un voto a votos
+	 * @param {Voto} voto
+	 */
+	incluirVoto(voto){
+		this._votos.push(voto);
+		this.contarVotos();
+	}
+	/**
+	 * Funcion que cuenta los likes y dislikes de un juego
+	 */
+	contarVotos(){
+		this.likes = 0;
+		this.dislikes = 0;
+		for (let i = 0; i < this.votos.length; i++) {
+			if(this.votos[i]._puntuacion === "like"){
+				this.likes++;
+			}else{
+				this.dislikes++;
+			}
+		}
+	}
 }
 
-class Creador extends Persona{
+class Votos{
 
-	constructor(nombre,apellidos){
-		super(nombre,apellidos);
-		this.juegos = [];
-	}
-
-	get nombre(){
-		return `${this._nombre}`;
-	}
-
-	set nombre(nombre){
-		this._nombre=nombre;
+	constructor(usuario,juego,puntuacion,comentario){
+		this.usuario = usuario;
+		this.juego = juego;
+		this.puntuacion = puntuacion;
+		this.comentario = comentario;
+		usuario.incluirVoto(this);
+		juego.incluirVoto(this);
+		
 	}
 
-	get apellidos(){
-		return `${this._apellidos}`;
+	get puntuacion(){
+		return `${this._puntuacion}`;
 	}
 
-	set apellidos(apellidos){
-		this._apellidos=apellidos;
+	set puntuacion(puntuacion){
+		this._puntuacion=puntuacion;
 	}
 
-	get juegos(){
-		return this._juegos;
+	get comentario(){
+		return `${this._comentario}`;
 	}
 
-	set juegos(juegos){
-		this._juegos=juegos;
-	}
-	
-	incluirJuegos(juego){
-		this._juegos.push(juego);
+	set comentario(comentario){
+		this._comentario=comentario;
 	}
 
-	toString(){
-		return `${this.nombre} ${this.apellidos}`;
+	get usuario(){
+		return `${this._usuario}`;
 	}
+
+	set usuario(usuario){
+		this._usuario=usuario;
+	}
+
+	get juego(){
+		return `${this._juego}`;
+	}
+
+	set juego(juego){
+		this._juego=juego;
+	}
+
+
 }

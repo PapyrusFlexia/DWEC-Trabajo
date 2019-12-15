@@ -4,7 +4,7 @@ let usuariotres= new Usuario("Dingus","Mingus", "Weegee");
 let usuariocuatro = new Usuario("Lou", "Logio", "Heehee");
 let usuariocinco = new Usuario("Alejandro","Capo", "Referencia Entendida");
 
-let listaUsuarios = [usuariouno,usuariodos,usuariotres,usuariocuatro,usuariocinco];
+
 
 let creador1 = new Creador("Gary","Gigax");
 let creador2 = new Creador("Sandy","Petersen");
@@ -17,6 +17,7 @@ let creador8 = new Creador("Fred","Hicks");
 let creador9 = new Creador("Alejandro","Fernández");
 
 let listaCreadores = [creador1,creador2,creador3,creador4,creador5,creador6,creador7,creador8,creador9];
+let listaUsuarios = [usuariouno,usuariodos,usuariotres,usuariocuatro,usuariocinco];
 
 let editorial1 = new Editorial("Wizards of the Coast");
 let editorial2 = new Editorial("Chaosium");
@@ -27,8 +28,6 @@ let editorial6 = new Editorial("Rockstar");
 let editorial7 = new Editorial("Holocubierta");
 let editorial8 = new Editorial("Evil Hat");
 let editorial9 = new Editorial("Memeverso");
-
-let listaEditoriales = [editorial1,editorial2,editorial3,editorial4,editorial5,editorial6,editorial7,editorial8,editorial9];
 
 let juego1 = new Juego("DnD", creador1, "Fantasía", editorial1);
 let juego2 = new Juego("La llamada de Cthulhu", creador2, "Misterio", editorial2);
@@ -70,12 +69,7 @@ editorial8.incluirJuegos(juego11);
 editorial9.incluirJuegos(juego12);
 editorial9.incluirJuegos(juego13);
 
-
-usuariouno.incluirJuegosComprados(juego1);   /** NOMBRES DE LOS JUEGOS */
-usuariodos.incluirJuegosComprados(juego2);
-usuariotres.incluirJuegosComprados(juego3);
-usuariocuatro.incluirJuegosComprados(juego4);
-usuariocinco.incluirJuegosComprados(juego5);
+let listaEditoriales = [editorial1,editorial2,editorial3,editorial4,editorial5,editorial6,editorial7,editorial8,editorial9];
 
 let juegos = [];
 
@@ -145,3 +139,16 @@ creador8.incluirJuegos(juego11);
 
 creador9.incluirJuegos(juego12);
 creador9.incluirJuegos(juego13);
+
+let voto1 = new Votos(usuariouno,juego1,"dislike","");
+let voto2 = new Votos(usuariouno,juego2,"dislike","");
+let voto3 = new Votos(usuariodos,juego3,"dislike","");
+let voto4 = new Votos(usuariodos,juego4,"dislike","");
+let voto5 = new Votos(usuariotres,juego5,"dislike","");
+let voto6 = new Votos(usuariotres,juego6,"like","");
+let voto7 = new Votos(usuariocuatro,juego7,"like","");
+let voto8 = new Votos(usuariocuatro,juego8,"like","");
+let voto9 = new Votos(usuariocinco,juego9,"like","");
+let voto10 = new Votos(usuariocinco,juego10,"dislike","");
+
+mostrarJuegosHTML(juegos);
