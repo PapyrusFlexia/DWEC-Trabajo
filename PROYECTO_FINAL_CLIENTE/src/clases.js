@@ -222,11 +222,12 @@ class Editorial{
 
 class Juego{
 
-	constructor(titulo,creador,genero,editorial){      
+	constructor(titulo,creador,genero,editorial,comprador){      
 		this.titulo = titulo;
 		this.creador = creador;
 		this.genero = genero;
 		this.editorial = editorial;
+		this.comprador = comprador;
 		this.votos = [];
 		this.likes = 0;
 		this.dislikes = 0;
@@ -246,6 +247,14 @@ class Juego{
 
 	set editorial(editorial){
 		this._editorial=editorial;
+	}
+
+	get comprador(){
+		return this._comprador;
+	}
+
+	set comprador(comprador){
+		this._comprador=comprador;
 	}
 
 	get creador(){
@@ -287,9 +296,9 @@ class Juego{
 		let editorial = document.createElement("p");
 		editorial.innerHTML = `${this.editorial}`;
 		editorial.setAttribute("data-identificador","editorial");
-		let nombre = document.createElement("p");           
-		nombre.innerHTML = `${this.nombre}`; 				
-		nombre.setAttribute("data-identificador","nombre"); 
+		let comprador = document.createElement("p");           
+		comprador.innerHTML = `${this.comprador}`; 				
+		comprador.setAttribute("data-identificador","comprador"); 
 		let contadorLikes = document.createElement("i");
 		contadorLikes.setAttribute("data-identificador","contadorLikes");
 		contadorLikes.classList.add("far");
@@ -304,7 +313,7 @@ class Juego{
 		bloque.append(genero);
 		bloque.append(creador);
 		bloque.append(editorial);
-		bloque.append(nombre);
+		bloque.append(comprador);
 		bloque.append(contadorLikes);
 		bloque.append(contadorDislikes);
 		nodoHTML.appendChild(bloque);
