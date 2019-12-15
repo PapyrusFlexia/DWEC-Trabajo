@@ -1,3 +1,7 @@
+let divErroresJuegoNuevo = document.getElementById("erroresJuegoNuevo");
+let divErroresCambiarUsuario = document.getElementById("erroresCambiarUsuario");
+let divErroresCambiarEditorial = document.getElementById("erroresCambiarEditorial");
+
 function añadirJuego(){
     let inputTitulo = document.getElementById("titulo");
     let inputCreador = document.getElementById("nombre");
@@ -5,11 +9,13 @@ function añadirJuego(){
     let inputGenero = document.getElementById("genero");
 	let inputEditorial = document.getElementById("editorial");
 
-    let tituloValidado = validarTituloJuego(inputTitulo); 
-    let nombreValidado = validarNombreCreador(inputCreador);
-    let apellidoValidado= validarApellidoCreador(inputApellidoCreador);
-    let generoValidado = validarGenero(inputGenero);
-    let editorialValidado= validarNombreEditorial(inputEditorial);
+	vaciarDivErrores(divErroresJuegoNuevo);
+
+    let tituloValidado = validarTituloJuego(inputTitulo, divErroresJuegoNuevo); 
+    let nombreValidado = validarNombreCreador(inputCreador, divErroresJuegoNuevo);
+    let apellidoValidado= validarApellidoCreador(inputApellidoCreador, divErroresJuegoNuevo);
+    let generoValidado = validarGenero(inputGenero, divErroresJuegoNuevo);
+    let editorialValidado= validarNombreEditorial(inputEditorial, divErroresJuegoNuevo);
 
     if(tituloValidado && nombreValidado && apellidoValidado && generoValidado && editorialValidado){
         let creador = listaCreadores.find( creador => creador.apellidos === inputApellidoCreador.value);
@@ -34,145 +40,6 @@ function añadirJuego(){
     }
     
 }
-
-function incluirJuegoHTML(juego){
-    let divJuegos  = document.getElementById("juegosMostrar");
-    juego.mostrarEnHTML(divJuegos);
-}
-
-// FUNCION PARA MARCAR INPUTS CORRECTOS                      
-function correcto(input){
-	input.className  = 'correcto';
-	let spanError = document.querySelectorAll(`#${input.id} + span`);
-	if(spanError.length > 0){
-		for (let i = 0; i < spanError.length; i++) {
-			divErrores.removeChild(spanError[i]);
-			
-		}
-	}
-}
-
-//FUNCION PARA MARCAR INPUTS INCORRECTOS
-function erroneo(input, error){
-	input.className  = 'incorrecto';
-	let padre = input.parentNode;
-	let spanError = document.querySelectorAll(`#${input.id} + span`);
-	if(spanError.length === 0){
-		let spanNuevo = document.createElement("span");
-		spanNuevo.className = 'error';
-		spanNuevo.innerHTML = error;
-		divErrores.appendChild(spanNuevo.cloneNode(true));
-	}
-} 
-
-function noEspacios(cadena){
-    let arrayPalabras = cadena.split(" ");
-    let nueva = "";
-
-    for (let i = 0; i < arrayPalabras.length; i++) {
-        nueva += arrayPalabras[i];
-    }
-    return nueva;
-}
-
-/**
- * Funcion que recibe una cadena, le quita los espacios en blanco por delante y por detras y la pone en mayusculas
- * @param {string} array es la cadena a tratar
- */
-function quitarEspaciosArrays(array){
-    let arrayResultante = null;
-    if(typeof(array) === "string"){
-        let arrayRegex = array.trim().toUpperCase();
-        arrayRegex = arrayRegex.replace(/\s{2,}/g," ");
-        if(arrayRegex !== ""){
-            arrayResultante = arrayRegex;
-        }
-    }
-    return arrayResultante;
-}
-
-
-function validarTituloJuego(inputTituloJuego){
-	let validado = false;
-	let tituloValidado = quitarEspaciosArrays(inputTituloJuego);
-
-	if(tituloValidado === undefined || tituloValidado.length <= 1){
-		erroneo(inputTituloJuego, 'No se ha validado el titulo')
-	}else{
-		validado = true;
-		correcto(inputTituloJuego);
-	}
-	return validado;
-}
-
-function validarNombreCreador(inputNombreCreador){
-	let validado = false;
-    let nombreValidado = quitarEspaciosArrays(inputNombreCreador);
-    let regex = /^[A-Z]{2,}$/g
-
-	if(!regex.test(nombreValidado)){
-		erroneo(inputNombreCreador, 'No se ha validado el nombre');
-	}else{
-		validado = true;
-		correcto(inputNombreCreador);
-	}
-	return validado;
-}
-
-function validarApellidoCreador(inputApellidoCreador){
-	let validado = false;
-	let apellidoValidado = quitarEspaciosArrays(inputApellidoCreador);
-
-	if(apellidoValidado === undefined || apellidoValidado.length < 1){
-		erroneo(inputApellidoCreador, 'No se ha validado el apellido');
-	}else{
-		validado = true;
-		correcto(inputApellidoCreador);
-        // marcarInputComoCorrecto(inputGenero);
-	}
-	return validado;
-}
-
-function validarGenero(inputGenero){
-	let validado = false;
-	let generoValidado = quitarEspaciosArrays(inputGenero);
-
-	if(generoValidado === undefined || generoValidado.length === ""){
-		erroneo(inputGenero, 'No se ha validado el género');
-	}else{
-		validado = true;
-		correcto(inputGenero);
-	}
-	return validado;
-}
-
-function validarNombreEditorial(inputNombreEditorial){
-	let validado = false;
-	let editorialValidado = quitarEspaciosArrays(inputNombreEditorial);
-
-	if(editorialValidado === undefined || editorialValidado.length < 2){
-		erroneo(inputNombreEditorial, 'No se ha validado el nombre de la editorial');
-	}else{
-		validado = true;
-		correcto(inputNombreEditorial);
-	}
-	return validado;
-}
-
-function validarJuegoCambiado(inputJuego){
-	let validado = false;
-	let juegoValidado = quitarEspaciosArrays(inputJuego.value);
-
-	if(juegoValidado === null || juegoValidado.length <= 1){
-		erroneo(inputJuego, 'No se ha validado el nombre de la editorial'):
-	}else{
-		validado = true;
-		correcto(inputNombreEditorial);
-	}
-	return validado;
-}
-
-
 
 function cambiarUsuarioActual(){
 	let seleccionarUsuario = null;
@@ -210,8 +77,8 @@ function cambiarEditorialActual(){
 	let inputNuevoNombre = document.getElementById("nombreEditorial");
 	let inputJuego = document.getElementById("juegoEditorial");
 
-	let validaNuevoNombre = validarNombreP(inputNuevoNombre);
-	let validaJuego = validarPeliculaSeleccionada(inputJuego);
+	let validaNuevoNombre = validarNombreCreador(inputNuevoNombre);
+	let validaJuego = validarJuegoSeleccionado(inputJuego);
 
 	if(validaNuevoNombre && validaJuego){
 		let nuevaEditorial = new Editorial(inputNuevoNombre.value);
@@ -250,19 +117,7 @@ botonCambiarEditorial.addEventListener("click",cambiarEditorialActual);
     inputsText[i].addEventListener("blur",blur);
 } */
 
-function crearOpciones(input){
-	for (let juego of juegos) {
-		let opcion = document.createElement("option");
-		opcion.className = "opcion";
-		opcion.setAttribute("value", noEspacios(juego.titulo));
-		opcion.innerHTML = `${juego.titulo}`;
-		input.appendChild(opcion);
-		
-	}
-}
-
-
-
 document.addEventListener("DOMContentLoaded", function(event) {
+	mostrarJuegosHTML(juegos);
 	crearOpciones();
 });

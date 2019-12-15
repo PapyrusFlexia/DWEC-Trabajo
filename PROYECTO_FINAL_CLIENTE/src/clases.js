@@ -242,7 +242,7 @@ class Juego{
 		}
 		return contiene;
 	}
-	
+
 	contieneGenero(genero){
 		let contiene = false;
 		let generoEncontrado = quitarEspaciosArrays(genero);

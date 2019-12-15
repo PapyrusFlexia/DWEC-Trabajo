@@ -2,11 +2,19 @@
 <html>
 <head lang="es_ES">
     <meta charset="UTF-8">
-    <title>GESTION</title>
-    <script src="edicion.js" cache="false" defer></script>
-    <script src="clases.js" cache="false" defer></script>
+    <title>EDICIÓN</title> 
 </head>
 <body>
+    <header> 
+        <nav>
+            <ul>
+                <li><a href="busqueda.html">Página de Búsqueda</a></li>
+                <li><a href="edicion.html">Página de Edición</a></li>
+                <li><a href="gestion.html">Página de Gestión</a></li>
+                <li><a href="usuario.html">Página de Usuario</a></li>
+            </ul>
+        </nav>
+    </header>
     <h1>EDICION</h1>
     <main>
         <section class="form">
@@ -32,6 +40,9 @@
                         <input type="text" name="editorial" id="editorial" class="inputForm" placeholder="Nombre de la editorial">
 
                         <button type="button" class="añadirEditorial" id="añadirEditorial">Añadir Juego</button>
+                        
+                        <div class="errores" id="erroresJuegoNuevo">
+                        </div>
 
                     </div>
             </form>
@@ -53,6 +64,10 @@
                         <input type="text" name="apellidoUsuario" id="apellidoUsuario" class="inputForm" placeholder="Apellido del usuario">
 
                         <button type="button" class="cambiarUsuario" id="cambiarUsuario">Editar Usuario</button>
+
+                        <div class="errores" id="erroresCambiarUsuario">
+                        </div>
+
                     </div>
             </form>
         </section>
@@ -70,6 +85,10 @@
                         <input type="text" name="nombreEditorial" id="nombreEditorial" class="inputForm" placeholder="Nombre de la editorial">
 
                         <button type="button" class="cambiarEditorial" id="cambiarEditorial">Editar Editorial</button>
+
+                        <div class="errores" id="erroresCambiarEditorial">
+                        </div>
+
                     </div>
             </form>
         </section>
@@ -77,31 +96,15 @@
         <section>
             <h1>JUEGOS DE ROL</h1>
             <div id="juegosMostrar">
-                <div class="juego" data-identificador="D&D">
-                    <h2 data-identificador="titulo">Dungeons & Dragons</h2>
-                    <h3 data-identificador="genero">Fantasía</h3>
-                    <p data-identificador="creador">Gary Gigax</p>
-                    <p data-identificador="editorial">Wizards of the Coast</p>
-                </div>
-
-                <div class="juego" data-identificador="Cthulhu">
-                    <h2 data-identificador="titulo">La llamada de Cthulhu</h2>
-                    <h3 data-identificador="genero">Misterio</h3>
-                    <p data-identificador="creador">Sandy Petersen</p>
-                    <p data-identificador="editorial">Chaosium</p>
-                </div>
-
-                <div class="juego" data-identificador="prueba">
-                        <h2 data-identificador="titulo">prueba</h2>
-                        <h3 data-identificador="genero">prueba</h3>
-                        <p data-identificador="creador">prueba</p>
-                        <p data-identificador="editorial">prueba</p>
-                    </div>
             </div>
        
         </section>
-
     </main>
+
+    <script src="edicion.js" cache="false" defer></script>
+    <script src="clases.js" cache="false" defer></script>
+    <script src="objetos.js" cache="false" defer></script>
+    <script src="funcionalidades.js" cache="false" defer></script>
     
     
     

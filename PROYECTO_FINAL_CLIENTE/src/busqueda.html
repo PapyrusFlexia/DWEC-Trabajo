@@ -3,10 +3,18 @@
 <head lang="es_ES">
     <meta charset="UTF-8">
     <title>BUSQUEDA</title>
-    <script src="busqueda.js" cache="false" defer></script>
-    <script src="clases.js" cache="false" defer></script>
 </head>
 <body>
+    <header> 
+        <nav>
+            <ul>
+                <li><a href="busqueda.html">Página de Búsqueda</a></li>
+                <li><a href="edicion.html">Página de Edición</a></li>
+                <li><a href="gestion.html">Página de Gestión</a></li>
+                <li><a href="usuario.html">Página de Usuario</a></li>
+            </ul>
+        </nav>
+    </header>
     <h1>BUSQUEDA</h1>
     <main>
         <section class="form">
@@ -14,9 +22,12 @@
                     <div class="filtrar">
                         <label for="titulo">Titulo</label>
                         <input type="search" name="titulo" id="titulo" class="inputForm" placeholder="Titulo del juego">
-                        <label for="titulo">Tipo</label>
-                        <input type="search" name="tipo" id="tipo" class="inputForm" placeholder="Tipo de juego">
+                        <label for="titulo">Género</label>
+                        <input type="search" name="genero" id="genero" class="inputForm" placeholder="Género del juego">
                         <button type="button" class="botonBusqueda" id="botonBusqueda">BUSCAR</button>
+                        
+                        <div class="errores" id="erroresFiltrarTituloGenero">
+                        </div>
                     </div>
             </form>
         </section>
@@ -33,6 +44,9 @@
                             <option value="estrategia">Estrategia</option>
                         </select>
                         <button type="button" class="botonGenero" id="botonGenero">BUSCAR</button>
+                        
+                        <div class="errores" id="erroresFiltrarGenero">
+                        </div>
                     </div>
             
             </form>
@@ -44,11 +58,20 @@
                         <label for="editorial">Editorial</label>
                         <select id="editorial" name="editorial">
                             <option value="">Selecciona la editorial</option>
-                            <option value="WizardsOfTheCoast">Wizards Of The Coast</option>
+                            <option value="Wizards of the Coast">Wizards Of The Coast</option>
                             <option value="Chaosium">Chaosium</option>
-                            <option value="prueba">prueba</option>
+                            <option value="Paninos">Paninos</option>
+                            <option value="Mierdijuegos">Mierdijuegos</option>
+                            <option value="Ada Its">Ada Its</option>
+                            <option value="Rockstar">Rockstar</option>
+                            <option value="Holocubierta">Holocubierta</option>
+                            <option value="Evil Hat">Evil Hat</option>
+                            <option value="Memeverso">Rockstar</option>
                         </select>
                         <button type="button" class="botonEditorial" id="botonEditorial">BUSCAR</button>
+                        
+                        <div class="errores" id="erroresFiltrarEditorial">
+                        </div>
                     </div>
             
             </form>
@@ -60,36 +83,25 @@
                         <label for="usuario">Usuario</label>
                         <input type="search" name="usuario" id="usuario" class="inputForm" placeholder="Nombre del Usuario">
                         <button type="button" class="botonUsuario" id="botonUsuario">BUSCAR</button>
+                        <div class="errores" id="erroresFiltrarJuegosComprados">
+
+
+                        </div>
                     </div>
             </form>
         </section> 
         <section>
             <h1>JUEGOS DE ROL</h1>
             <div id="juegosMostrar">
-                <div class="juego" data-identificador="D&D">
-                    <h2 data-identificador="titulo">Dungeons & Dragons</h2>
-                    <h3 data-identificador="genero">Fantasía</h3>
-                    <p data-identificador="creador">Gary Gigax</p>
-                    <p data-identificador="editorial">Wizards of the Coast</p>
-                </div>
-
-                <div class="juego" data-identificador="Cthulhu">
-                    <h2 data-identificador="titulo">La llamada de Cthulhu</h2>
-                    <h3 data-identificador="genero">Misterio</h3>
-                    <p data-identificador="creador">Sandy Petersen</p>
-                    <p data-identificador="editorial">Chaosium</p>
-                </div>
-
-                <div class="juego" data-identificador="prueba">
-                        <h2 data-identificador="titulo">prueba</h2>
-                        <h3 data-identificador="genero">prueba</h3>
-                        <p data-identificador="creador">prueba</p>
-                        <p data-identificador="editorial">prueba</p>
-                    </div>
             </div>
        
         </section>
     </main>
+
+    <script src="busqueda.js" cache="false" defer></script>
+    <script src="clases.js" cache="false" defer></script>
+    <script src="objetos.js" cache="false" defer></script>
+    <script src="funcionalidades.js" cache="false" defer></script>
    
 </body>
 </html>

@@ -50,7 +50,7 @@ function validarJuegoCambiado(inputJuego, divErrores){
 		erroneo(inputJuego, divErrores, 'No se ha validado el nombre de la editorial');
 	}else{
 		validado = true;
-		correcto(inputNombreEditorial);
+		correcto(inputJuego);
 	}
 	return validado;
 }
@@ -102,7 +102,7 @@ function validarApellidoCreador(inputApellidoCreador){
  */
 function validarNombreUsuario(inputNombreUsuario,divErrores){
 	let validado = false;
-	let nombreValidado = quitarEspaciosArray(inputNombreUsuario.value);
+	let nombreValidado = quitarEspaciosArrays(inputNombreUsuario.value);
 	let exp = /^[A-Z]{2,}$/g
 	if(!exp.test(nombreValidado)){
 		erroneo(inputNombreUsuario,divErrores,'El nombre del usuario es obligatorio');
@@ -155,7 +155,7 @@ function correcto(input){
 	}
 }
 
-function erroneo(input, error){
+function erroneo(input, error, divErrores){
 	input.className  = 'incorrecto';
 	let padre = input.parentNode; //quitar
 	let spanError = document.querySelectorAll(`#${input.id} + span`);

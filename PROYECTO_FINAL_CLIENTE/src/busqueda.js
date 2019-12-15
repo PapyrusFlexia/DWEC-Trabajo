@@ -1,65 +1,26 @@
-function mostrarJuegosHTML(juegosMostrar){
-    let divJuegos  = document.getElementById("juegosMostrar");
-    divJuegos.innerHTML = "";
-    if(juegosMostrar.length === 0){
-        divJuegos.innerHTML = "No se ha encontrado ningún juego";
-    }else{
-        juegosMostrar.forEach( juego => juego.mostrarEnHTML(divJuegos));
-    }
-}
+let erroresFiltrarTituloGenero = document.getElementById("erroresFiltrarTituloGenero");
+let erroresFiltrarGenero = document.getElementById("erroresFiltrarGenero");
+let erroresFiltrarJuegosComprados = document.getElementById("erroresFiltrarJuegosComprados");
+let erroresFiltrarEditorial = document.getElementById("erroresFiltrarEditorial");
 
-function noEspacios(cadena){
-    let arrayPalabras = cadena.split(" ");
-    let nueva = "";
-
-    for (let i = 0; i < arrayPalabras.length; i++) {
-        nueva += arrayPalabras[i];
-    }
-    return nueva;
-}
-
-/**
- * Funcion que recibe una cadena, le quita los espacios en blanco por delante y por detras y la pone en mayusculas
- * @param {string} array es la cadena a tratar
- */
-function quitarEspaciosArrays(array){
-    let arrayResultante = null;
-    if(typeof(array) === "string"){
-        let arrayRegex = array.trim().toUpperCase();
-        arrayRegex = arrayRegex.replace(/\s{2,}/g," ");
-        if(arrayRegex !== ""){
-            arrayResultante = arrayRegex;
-        }
-    }
-    return arrayResultante;
-}
-
-function incluirJuegoHTML(juego){
-    let divJuegos  = document.getElementById("juegosMostrar"); /** TAL VEZ HALLA QUE QUITARLO */
-    juego.mostrarEnHTML(divJuegos);
-}
-
-
-function filtrarTituloTipo(){
+function filtrarTituloGenero(){
     let inputTitulo = document.getElementById("titulo");
-    let inputTipo = document.getElementById("tipo");
+    let inputGenero = document.getElementById("genero");
     let titulo = inputTitulo.value;
-    let tipo = inputTipo.value;
-    let busquedaRealizada = realizarBusqueda(titulo, tipo);
-   
-   
+    let genero = inputGenero.value;
+    let busquedaRealizada = realizarBusqueda(titulo, genero);
    
     if(busquedaRealizada !== null){
-        marcarInputComoCorrecto(inputTitulo)
+        correcto(inputTitulo)
         mostrarJuegosHTML(busquedaRealizada);
     }else{
-        console.log("No se ha encontrado ningún juego");
+       erroneo(inputTitulo,erroresFiltrarTituloGenero);
     }
     
 }
 
-function realizarBusqueda(titulo, tipo){
-	let juegosResultantes = juegos.filter( juego => juego.contieneTitulo(titulo) && juego.contieneTipo(tipo));
+function realizarBusqueda(titulo, genero){
+	let juegosResultantes = juegos.filter( juego => juego.contieneTitulo(titulo) && juego.contieneGenero(genero));
 	return juegosResultantes;
 }
 
@@ -94,7 +55,7 @@ function juegosComprados(){
     let inputUsuario = document.getElementById("usuario");
     let nombre = inputUsuario.value.trim().toUpperCase();
     let juegosComprados = [];
-    let esNombreCorrecto = validarNombreUsuario(inputUsuario,erroresFiltrarPF);
+    let esNombreCorrecto = validarNombreUsuario(inputUsuario,erroresFiltrarJuegosComprados);
 
     if(esNombreCorrecto){
         juegosComprados = juegosUsuario(nombre);
@@ -102,7 +63,6 @@ function juegosComprados(){
        
     }
 }
-
 
 
 /** devuelve los juegos comprados */
@@ -117,9 +77,6 @@ function juegosUsuario(nombre){
     
 }
 
-
-
-
 let botonBuscar = document.getElementById("botonBusqueda");
 let botonGenero = document.getElementById("botonGenero");
 let botonEditorial = document.getElementById("botonEditorial");
@@ -127,7 +84,7 @@ let botonUsuario = document.getElementById("botonUsuario");
 let inputsText = document.getElementsByClassName("inputForm");
 
 
-botonBuscar.addEventListener("click", filtrarTituloTipo);
+botonBuscar.addEventListener("click", filtrarTituloGenero);
 botonGenero.addEventListener("click",filtrarGenero);
 botonUsuario.addEventListener("click", juegosComprados);
 botonEditorial.addEventListener("click",filtrarEditorial);
@@ -136,6 +93,12 @@ botonEditorial.addEventListener("click",filtrarEditorial);
     inputsText[i].addEventListener("focus",focus);
     inputsText[i].addEventListener("blur",blur);
 } **/
+
+document.addEventListener("DOMContentLoaded", function(event) {
+	mostrarJuegosHTML(juegos);
+	crearOpciones();
+});
+
 
 
 
