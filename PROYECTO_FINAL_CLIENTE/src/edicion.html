@@ -1,11 +1,18 @@
 <!DOCTYPE html>
 <html>
+
 <head lang="es_ES">
     <meta charset="UTF-8">
-    <title>EDICIÓN</title> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Edición</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="estilo.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
 </head>
+
 <body>
-    <header> 
+    <header>
         <nav>
             <ul>
                 <li><a href="busqueda.html">Página de Búsqueda</a></li>
@@ -19,76 +26,76 @@
     <main>
         <section class="form">
             <form action="" id="añadirJuego">
-                    <div class="editarFormulario">
-                        <label for="titulo">AÑADIR JUEGO: Titulo</label>
-                        <input type="text" name="titulo" id="titulo" class="inputForm" placeholder="Titulo del Juego">
-                        <label for="nombre">Nombre del Creador</label>
-                        <input type="text" name="nombre" id="nombre" class="inputForm" placeholder="Nombre del creador">
-                        <label for="apellido">Apellido del Creador</label>
-                        <input type="text" name="apellido" id="apellido" class="inputForm" placeholder="Apellido del creador">
-                        <label for="genero">Género</label>
-                        <select id="genero" name="genero">
-                            <option value="">Selecciona el género</option>
-                            <option value="fantasia">Fantasía</option>
-                            <option value="misterio">Misterio</option>
-                            <option value="terror">Terror</option>
-                            <option value="sci-fi">Ciencia Ficción</option>
-                        </select>
+                <div class="editarFormulario">
+                    <label for="titulo">AÑADIR JUEGO: Titulo</label>
+                    <input type="text" name="titulo" id="titulo" class="inputForm" placeholder="Titulo del Juego">
+                    <label for="nombre">Nombre del Creador</label>
+                    <input type="text" name="nombre" id="nombre" class="inputForm" placeholder="Nombre del creador">
+                    <label for="apellido">Apellido del Creador</label>
+                    <input type="text" name="apellido" id="apellido" class="inputForm" placeholder="Apellido del creador">
+                    <label for="genero">Género</label>
+                    <select id="genero" name="genero">
+                        <option value="">Selecciona el género</option>
+                        <option value="fantasia">Fantasía</option>
+                        <option value="misterio">Misterio</option>
+                        <option value="terror">Terror</option>
+                        <option value="sci-fi">Ciencia Ficción</option>
+                    </select>
 
-                        <label for="editorial">Nombre de la Editorial</label>
-                        <input type="text" name="editorial" id="editorial" class="inputForm" placeholder="Nombre de la editorial">
+                    <label for="editorial">Nombre de la Editorial</label>
+                    <input type="text" name="editorial" id="editorial" class="inputForm" placeholder="Nombre de la editorial">
 
-                        <button type="button" class="añadirJuegoNuevo" id="añadirJuegoNuevo">Añadir Juego</button>
-                        
-                        <div class="errores" id="erroresJuegoNuevo">
-                        </div>
+                    <button type="button" class="añadirJuegoNuevo" id="añadirJuegoNuevo">Añadir Juego</button>
 
+                    <div class="errores" id="erroresJuegoNuevo">
                     </div>
+
+                </div>
             </form>
         </section>
 
         <section class="form">
             <form action="" id="FormularioCambiarUsuario">
-                    <div class="changeForm">
-                        <label for="juegoUsuario">AÑADIR O CAMBIAR USUARIO: Juego</label>
-                        <select id="juegoUsuario" name="juegoUsuario">
-                                <option value="">Seleccionar</option>
-                                
-                        </select>
+                <div class="changeForm">
+                    <label for="juegoUsuario">AÑADIR O CAMBIAR USUARIO: Juego</label>
+                    <select id="juegoUsuario" name="juegoUsuario">
+                        <option value="">Seleccionar</option>
 
-                        <label for="nombre">Nombre del Usuario</label>
-                        <input type="text" name="nombreUsuario" id="nombreUsuario" class="inputForm" placeholder="Nombre del usuario">
-                        
-                        <label for="apellido">Apellido del Usuario</label>
-                        <input type="text" name="apellidoUsuario" id="apellidoUsuario" class="inputForm" placeholder="Apellido del usuario">
+                    </select>
 
-                        <button type="button" class="cambiarUsuario" id="cambiarUsuario">Editar Usuario</button>
+                    <label for="nombre">Nombre del Usuario</label>
+                    <input type="text" name="nombreUsuario" id="nombreUsuario" class="inputForm" placeholder="Nombre del usuario">
 
-                        <div class="errores" id="erroresCambiarUsuario">
-                        </div>
+                    <label for="apellido">Apellido del Usuario</label>
+                    <input type="text" name="apellidoUsuario" id="apellidoUsuario" class="inputForm" placeholder="Apellido del usuario">
 
+                    <button type="button" class="cambiarUsuario" id="cambiarUsuario">Editar Usuario</button>
+
+                    <div class="errores" id="erroresCambiarUsuario">
                     </div>
+
+                </div>
             </form>
         </section>
 
         <section class="form">
             <form action="" id="FormularioCambiarEditorial">
-                    <div class="changeForm">
-                        <label for="juegoEditorial">AÑADIR O CAMBIAR EDITORIAL: Juego</label>
-                        <select id="juegoEditorial" name="juegoEditorial">
-                                <option value="">Seleccionar</option>
-                                
-                        </select>
+                <div class="changeForm">
+                    <label for="juegoEditorial">AÑADIR O CAMBIAR EDITORIAL: Juego</label>
+                    <select id="juegoEditorial" name="juegoEditorial">
+                        <option value="">Seleccionar</option>
 
-                        <label for="nombre">Nombre de la Editorial</label>
-                        <input type="text" name="nombreEditorial" id="nombreEditorial" class="inputForm" placeholder="Nombre de la editorial">
+                    </select>
 
-                        <button type="button" class="cambiarEditorial" id="cambiarEditorial">Editar Editorial</button>
+                    <label for="nombre">Nombre de la Editorial</label>
+                    <input type="text" name="nombreEditorial" id="nombreEditorial" class="inputForm" placeholder="Nombre de la editorial">
 
-                        <div class="errores" id="erroresCambiarEditorial">
-                        </div>
+                    <button type="button" class="cambiarEditorial" id="cambiarEditorial">Editar Editorial</button>
 
+                    <div class="errores" id="erroresCambiarEditorial">
                     </div>
+
+                </div>
             </form>
         </section>
 
@@ -96,7 +103,7 @@
             <h1>JUEGOS DE ROL</h1>
             <div id="juegosMostrar">
             </div>
-       
+
         </section>
     </main>
 
@@ -104,8 +111,7 @@
     <script src="clases.js" cache="false" defer></script>
     <script src="objetos.js" cache="false" defer></script>
     <script src="funcionalidades.js" cache="false" defer></script>
-    
-    
-    
+
 </body>
+
 </html>
