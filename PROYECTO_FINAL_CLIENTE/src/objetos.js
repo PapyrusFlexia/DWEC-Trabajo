@@ -1,9 +1,9 @@
 	  
-let usuariouno= new Usuario("Pablo","Vega", "DnD");
-let usuariodos = new Usuario("Carlos", "García", "La llamada de Cthulhu");
-let usuariotres= new Usuario("Dingus","Mingus", "Weegee");
-let usuariocuatro = new Usuario("Lou", "Logio", "Heehee");
-let usuariocinco = new Usuario("Alejandro","Capo", "Referencia Entendida");
+let usuariouno= new Usuario("Pablo","Vega", "DnD", "PapyrusFlexia");
+let usuariodos = new Usuario("Carlos", "García", "Fabuland");
+let usuariotres= new Usuario("Dingus","Mingus", "Weegee", "Yeetus");
+let usuariocuatro = new Usuario("Lou", "Logio", "Heehee", "Maximus");
+let usuariocinco = new Usuario("Alejandro","Capo", "Referencia Entendida", "Dingus");
 let creador1 = new Creador("Gary","Gigax");
 let creador2 = new Creador("Sandy","Petersen");
 let creador3 = new Creador("Pablo","Vega");

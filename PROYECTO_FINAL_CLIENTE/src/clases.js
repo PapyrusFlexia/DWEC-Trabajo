@@ -5,7 +5,6 @@ class Persona{
 		this.apellidos = apellidos;
 	}
 
-
 	get nombre(){
 		return `${this._nombre}`;
 	}
@@ -69,7 +68,7 @@ class Usuario extends Persona{
 	incluirJuegosComprados(juego){
 		this.juegosComprados.push(juego);
 	}
-	
+
 	contieneNombre(nombre){
 		let contiene = false;
 		let nombreEncontrado = quitarEspaciosArrays(nombre);
@@ -203,7 +202,10 @@ class Editorial{
 	incluirJuegos(juego){
 		this._juegos.push(juego);
 	}
-
+/**
+ * Funcion que recibe un nodo y que sirve para validar si un input contiene un nombre
+ * @param {nodo} nombre el nodo del nombre
+ */
 	contieneNombre(nombre){
 		let contiene = false;
 		let nombreEncontrado = quitarEspaciosArrays(nombre);
@@ -220,7 +222,7 @@ class Editorial{
 
 class Juego{
 
-	constructor(titulo,creador,genero,editorial){
+	constructor(titulo,creador,genero,editorial){      
 		this.titulo = titulo;
 		this.creador = creador;
 		this.genero = genero;
@@ -261,7 +263,6 @@ class Juego{
 	set genero(genero){
 		this._genero=genero;
 	}
-
 	get votos(){
 		return this._votos;
 	}
@@ -286,6 +287,9 @@ class Juego{
 		let editorial = document.createElement("p");
 		editorial.innerHTML = `${this.editorial}`;
 		editorial.setAttribute("data-identificador","editorial");
+		let nombre = document.createElement("p");           
+		nombre.innerHTML = `${this.nombre}`; 				
+		nombre.setAttribute("data-identificador","nombre"); 
 		let contadorLikes = document.createElement("i");
 		contadorLikes.setAttribute("data-identificador","contadorLikes");
 		contadorLikes.classList.add("far");
@@ -300,11 +304,15 @@ class Juego{
 		bloque.append(genero);
 		bloque.append(creador);
 		bloque.append(editorial);
+		bloque.append(nombre);
 		bloque.append(contadorLikes);
 		bloque.append(contadorDislikes);
 		nodoHTML.appendChild(bloque);
 	}
-
+/**
+ * Funcion que recibe un nodo y que sirve para validar si un input contiene un titulo
+ * @param {nodo} titulo el nodo del titulo
+ */
 	contieneTitulo(titulo){
 		let contiene = false;
 		let tituloEncontrado = quitarEspaciosArrays(titulo);
@@ -313,7 +321,10 @@ class Juego{
 		}
 		return contiene;
 	}
-
+/**
+ * Funcion que recibe un nodo y que sirve para validar si un input contiene un genero
+ * @param {nodo} genero el nodo del genero
+ */
 	contieneGenero(genero){
 		let contiene = false;
 		let generoEncontrado = quitarEspaciosArrays(genero);
@@ -322,7 +333,10 @@ class Juego{
 		}
 		return contiene;
 	}
-
+/**
+ * Funcion que recibe un nodo y que sirve para validar si un input contiene un creador
+ * @param {nodo} creador el nodo del creador
+ */
 	contieneCreador(creador){
 		let contiene = false;
 		let creadorEncontrado = quitarEspaciosArrays(creador);
@@ -331,12 +345,27 @@ class Juego{
 		}
 		return contiene;
 	}
-
+/**
+ * Funcion que recibe un nodo y que sirve para validar si un input contiene una editorial
+ * @param {nodo} editorial el nodo de la editorial
+ */
 	contieneEditorial(editorial){
 		let contiene = false;
 		let editorialEncontrada = quitarEspaciosArrays(editorial);
 		if(editorialEncontrada !== null){
 			contiene = this.editorial.nombre.toUpperCase().includes(editorialEncontrada);
+		}
+		return contiene;
+	}
+/**
+ * Funcion que recibe un nodo y que sirve para validar si un input contiene un nombre
+ * @param {nodo} nombre el nodo del nombre
+ */
+	contieneNombre(nombre){ 				
+		let contiene = false;
+		let nombreEncontrado = quitarEspaciosArrays(nombre);
+		if(nombreEncontrado !== null){
+			contiene = this.nombre.toUpperCase().includes(nombreEncontrado);
 		}
 		return contiene;
 	}

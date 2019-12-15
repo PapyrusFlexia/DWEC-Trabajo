@@ -13,7 +13,10 @@ function quitarEspaciosArrays(array){
     }
     return arrayResultante;
 }
-
+/**
+ * Funcion que recibe un nodo y que sirve para mostrar los juegos en el HTML
+ * @param {nodo} juegosMostrar el nodo para mostrar los juegos
+ */
 function mostrarJuegosHTML(juegosMostrar){
     let divJuegos  = document.getElementById("juegosMostrar");
     divJuegos.innerHTML = "";
@@ -23,15 +26,22 @@ function mostrarJuegosHTML(juegosMostrar){
         juegosMostrar.forEach(juego => juego.mostrarEnHTML(divJuegos));
     }
 }
-
+/**
+ * Funcion que recibe un nodo y que sirve para incluir juegos en el HTML
+ * @param {nodo} juego el nodo del juego
+ */
 function incluirJuegoHTML(juego){
-    let divJuegos  = document.getElementById("juegosMostrar"); /** TAL VEZ HALLA QUE QUITARLO */
+    let divJuegos  = document.getElementById("juegosMostrar"); 
     juego.mostrarEnHTML(divJuegos);
 }
-
+/**
+ * Funcion que recibe dos nodos y que sirve para validar si un input contiene un titulo
+ * @param {nodo} inputTituloJuego el nodo del input del titulo del juego
+ * @param {nodo} divErrores el nodo de los errores
+ */
 function validarTituloJuego(inputTituloJuego, divErrores){
 	let validado = false;
-	let tituloValidado = quitarEspaciosArrays(inputTituloJuego.value); ///////////////////////// .value cambiado
+	let tituloValidado = quitarEspaciosArrays(inputTituloJuego.value); 
 
 	if(tituloValidado === undefined || tituloValidado.length <= 1){
 		erroneo(inputTituloJuego, divErrores, 'No se ha validado el titulo')
@@ -41,6 +51,11 @@ function validarTituloJuego(inputTituloJuego, divErrores){
 	}
 	return validado;
 }
+/**
+ * Funcion que recibe dos nodos y que sirve para validar si un juego se ha cambiado
+ * @param {nodo} inputJuego el nodo del input del juego
+ * * @param {nodo} divErrores el nodo de los errores
+ */
 
 function validarJuegoCambiado(inputJuego, divErrores){
 	let validado = false;
@@ -54,10 +69,14 @@ function validarJuegoCambiado(inputJuego, divErrores){
 	}
 	return validado;
 }
-
+/**
+ * Funcion que recibe dos nodos y que sirve para validar las opciones seleccionadas
+ * @param {nodo} inputOcion el nodo del input de las opciones
+ * * @param {nodo} divErrores el nodo de los errores
+ */
 function validarOpcionSeleccionada(inputOpcion,divErrores){
 	let validado = false;
-	let opcionValidada = quitarEspaciosArrays(inputOpcion.value); ///////////////AÑADIDO .VALUE
+	let opcionValidada = quitarEspaciosArrays(inputOpcion.value); 
 
 	if(opcionValidada === null || opcionValidada.length <= 1){
 		erroneo(inputOpcion,divErrores,'Debe seleccionar una opcion<br>');
@@ -67,8 +86,12 @@ function validarOpcionSeleccionada(inputOpcion,divErrores){
 	}
 	return validado;
 }
-
-function validarNombreCreador(inputNombreCreador, divErrores){ ////////AÑADIDO DIV ERRORES
+/**
+ * Funcion que recibe dos nodos y que sirve para validar si un input contiene el nombre de un creador
+ * @param {nodo} inputNombreCreador el nodo del input del nombre del creador
+ * * @param {nodo} divErrores el nodo de los errores
+ */
+function validarNombreCreador(inputNombreCreador, divErrores){ 
 	let validado = false;
     let nombreValidado = quitarEspaciosArrays(inputNombreCreador.value);
     let regex = /^[A-Z]{2,}$/g
@@ -82,10 +105,14 @@ function validarNombreCreador(inputNombreCreador, divErrores){ ////////AÑADIDO 
 	return validado;
 }
 
-
+/**
+ * Funcion que recibe dos nodos y que sirve para validar si un input contiene el apellido de un creador
+ * @param {nodo} inputApellidoCreador el nodo del input del apellido del creador
+ * * @param {nodo} divErrores el nodo de los errores
+ */
 function validarApellidoCreador(inputApellidoCreador, divErrores){
 	let validado = false;
-	let apellidoValidado = quitarEspaciosArrays(inputApellidoCreador.value); /////////////////////AÑADIDO .VALUE
+	let apellidoValidado = quitarEspaciosArrays(inputApellidoCreador.value); 
 
 	if(apellidoValidado === undefined || apellidoValidado.length < 1){
 		erroneo(inputApellidoCreador, divErrores, 'No se ha validado el apellido del creador');
@@ -121,7 +148,7 @@ function validarNombreUsuario(inputNombreUsuario,divErrores){
  */
 function validarGenero(inputGenero,divErrores){
 	let validado = false;
-	let generoValidado = quitarEspaciosArrays(inputGenero.value); ////////////////////// AÑADIDO VALUE
+	let generoValidado = quitarEspaciosArrays(inputGenero.value); 
 
 	if(generoValidado === null || generoValidado === ""){
 		erroneo(inputGenero,divErrores,'El genero es erroneo');
@@ -131,10 +158,14 @@ function validarGenero(inputGenero,divErrores){
 	}
 	return validado;
 }
-
+/**
+ * Funcion que recibe dos nodos y que sirve para validar si un input contiene un nombre de una editorial
+ * @param {nodo} inputNombreEditorial el nodo del input del nombre de la editorial
+ * @param {nodo} divErrores el nodo de los errores
+ */
 function validarNombreEditorial(inputNombreEditorial, divErrores){
 	let validado = false;
-	let editorialValidado = quitarEspaciosArrays(inputNombreEditorial.value); ////////////////////// AÑADIDO VALUE
+	let editorialValidado = quitarEspaciosArrays(inputNombreEditorial.value); 
 
 	if(editorialValidado === null || editorialValidado.length < 2){
 		erroneo(inputNombreEditorial, divErrores, 'No se ha validado el nombre de la editorial');
@@ -145,8 +176,12 @@ function validarNombreEditorial(inputNombreEditorial, divErrores){
 	return validado;
 }
 
-// FUNCION PARA MARCAR INPUTS CORRECTOS
-function correcto(input, divErrores){  ///////////////////////// AÑADIDO DIV ERRORES
+/**
+ * Funcion que recibe dos nodos y que sirve para validar si un input es correcto
+ * @param {nodo} input el nodo del input
+ * @param {nodo} divErrores el nodo de los errores
+ */
+function correcto(input, divErrores){  
 	input.className  = 'correcto';
 	let spanError = document.querySelectorAll(`#${input.id} + span`);
 	if(spanError.length > 0){
@@ -155,7 +190,13 @@ function correcto(input, divErrores){  ///////////////////////// AÑADIDO DIV ER
 		}
 	}
 }
-
+/**
+ * Funcion que recibe tres nodos y que sirve para validar si un input es incorrecto
+ * @param {nodo} input el nodo del input
+ * @param {nodo} divErrores el nodo de los errores
+ * @param {nodo} textoError el nodo de los del texto para indicar que la validación ha salido errónea
+ 
+ */
 function erroneo(input, divErrores, textoError){
 	input.className  = 'incorrecto';
 	let spanError = document.querySelectorAll(`#${input.id} + span`);
@@ -175,7 +216,9 @@ function erroneo(input, divErrores, textoError){
 function vaciarDivErrores(divErrores){
     divErrores.innerHTML = "";
 }
-
+/**
+ * Funcion que recibe dos nodos y que sirve para crear las opciones de los inputs
+ */
 function crearOpciones(){
     let inputJuegoUsuario = document.getElementById("juegoUsuario");
     let inputJuegoEditorial = document.getElementById("juegoEditorial");
@@ -189,7 +232,10 @@ function crearOpciones(){
 
     }
 }
-
+/**
+ * Funcion que recibe dos nodos y que sirve para quitar los espacios en un array
+ * @param {nodo} cadena el nodo del array
+ */
 function noEspacios(cadena){
     let arrayPalabras = cadena.split(" ");
     let nueva = "";
@@ -199,7 +245,11 @@ function noEspacios(cadena){
     }
     return nueva;
 }
-
+/**
+ * Funcion que recibe dos nodos y que sirve para validar la longitud
+ * @param {nodo} inputLongitud el nodo del input de la longitud
+ * @param {nodo} divErrores el nodo de los errores
+ */
 function validarLongitud(inputLongitud,divErrores){
 	let valido = false;
 	let longitudValidada = inputLongitud.value;
@@ -212,6 +262,11 @@ function validarLongitud(inputLongitud,divErrores){
 	}
 	return valido;
 }
+/**
+ * Funcion que recibe dos nodos y que sirve para validar el juego seleccionado
+ * @param {nodo} inputJuego el nodo del input de los juegos
+ * @param {nodo} divErrores el nodo de los errores
+ */
 
 function validarJuegoSeleccionado(inputJuego,divErrores){
 	let validado = false;

@@ -2,6 +2,10 @@ let divErroresJuegoNuevo = document.getElementById("erroresJuegoNuevo");
 let divErroresCambiarUsuario = document.getElementById("erroresCambiarUsuario");
 let divErroresCambiarEditorial = document.getElementById("erroresCambiarEditorial");
 
+/**
+ * Funcion que sirve para añadir un juego a la lista
+ */
+
 function añadirJuego(){
     let inputTitulo = document.getElementById("titulo");
     let inputCreador = document.getElementById("nombre");
@@ -34,16 +38,20 @@ function añadirJuego(){
             juegos.push(validaJue);
             incluirJuegoHTML(validaJue);
             creador.incluirJuegos(validaJue);
-            editorial.incluirJuegoHTML(validaJue);
+            editorial.incluirJuegos(validaJue);
 		}
 		
     }
     
 }
 
+/**
+ * Funcion que sirve para cambiar el usuario que ha comprado cada juego
+ */
+
 function cambiarUsuarioActual(){
 	let seleccionarUsuario = null;
-	let inputJuego = document.getElementById("juegoUsuario"); /** CAMBIAR EN HTML */
+	let inputJuego = document.getElementById("juegoUsuario"); 
 	let inputNuevoNombre = document.getElementById("nombreUsuario");
     let inputNuevoApellido = document.getElementById("apellidoUsuario");
     
@@ -61,10 +69,10 @@ function cambiarUsuarioActual(){
 
 		if(juego !== undefined){
 			juego.usuario = nuevoUsuario;
-			nuevoUsuario.incluirJuegosComprados(juego);                  //////////////// cambiado a incluiirjuegoscomprados
+			nuevoUsuario.incluirJuegosComprados(juego);                 
 			let htmlJuegos = document.getElementById("juegosMostrar")
 			seleccionarUsuario = htmlJuegos.querySelector(`div[data-identificador = ${inputJuego.value}]`);
-			let usuarioActual = seleccionarUsuario.querySelector("p[data-identificador = usuario]");
+			let usuarioActual = seleccionarUsuario.querySelector("p[data-identificador = nombre]");
 			usuarioActual.innerHTML = `${nuevoUsuario}`;
 		}
 
@@ -72,7 +80,9 @@ function cambiarUsuarioActual(){
 	}
 	
 }
-
+/**
+ * Funcion que sirve para cambiar la editorial de un juego
+ */
 function cambiarEditorialActual(){
 	let inputNuevoNombre = document.getElementById("nombreEditorial");
 	let inputJuego = document.getElementById("juegoEditorial");
@@ -101,7 +111,7 @@ function cambiarEditorialActual(){
 
 
 //CONSIGUIENDO BOTON DEL FORMULARIO
-let botonNuevoJuego = document.getElementById("añadirJuegoNuevo"); ////////////// CAMBIADO A AÑADIR JUEGO NUEVO
+let botonNuevoJuego = document.getElementById("añadirJuegoNuevo"); 
 let botonCambiarUsuario = document.getElementById("cambiarUsuario");
 let botonCambiarEditorial = document.getElementById("cambiarEditorial");
 let inputsText = document.getElementsByClassName("inputForm");
