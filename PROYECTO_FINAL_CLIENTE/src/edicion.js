@@ -130,6 +130,13 @@ for (let i = 0; i < inputsText.length; i++) {
     inputsText[i].addEventListener("blur", blur);
 }
 
+function recogerFunciones(){
+    añadirJuego();
+    cambiarUsuarioActual();
+    cambiarEditorialActual();
+    
+}
+
 document.addEventListener("DOMContentLoaded", function(event) {
     mostrarJuegosHTML(juegos);
     crearOpciones();

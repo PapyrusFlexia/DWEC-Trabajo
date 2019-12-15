@@ -125,6 +125,14 @@ for (let i = 0; i < inputsText.length; i++) {
     inputsText[i].addEventListener("blur", blur);
 }
 
+function recogerFunciones(){
+    filtrarTituloGenero();
+    filtrarGenero();
+    filtrarEditorial();
+    juegosComprados();
+    
+}
+
 document.addEventListener("DOMContentLoaded", function(event) {
     mostrarJuegosHTML(juegos);
 
