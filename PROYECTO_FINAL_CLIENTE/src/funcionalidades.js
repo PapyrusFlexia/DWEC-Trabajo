@@ -208,6 +208,23 @@ function erroneo(input, divErrores, textoError){
 	}
 }
 
+	/**
+	 * Funcion que cambia el color de fondo si el input tiene el foco (solo tipo text y textarea)
+	 * @param {event} event el evento lanzado
+	 */
+	function focus(event){
+	    let input = event.target;
+	    input.style.backgroundColor = "rgba(15, 191, 219, 0.2)";
+	}
+	/**
+	 * Funcion que elimina el color de fondo si el input no tiene el foco (solo tipo text y textarea)
+	 * @param {event} event el evento lanzado
+	 */
+	function blur(event){
+	    let input = event.target;
+	    input.style.backgroundColor = "";
+	}
+	
 
 /**
  * Funcion que vacia un nodo
@@ -232,6 +249,29 @@ function crearOpciones(){
 
     }
 }
+
+/**
+	 * Funcion que en funcion de los juegos comprados de un usuario cambia el select de los juegos
+	 * @param {string} nombre es el nombre de usuario
+	 * @param {nodo} input es el nodo donde apareceran las opciones
+	 */
+	function crearOpcionesPersonalizadas(nombre,input){
+		let usuario = listaUsuarios.find(usuario => usuario.nombre === nombre);
+		let juegosComprados = usuario.juegosComprados;
+		input.innerHTML = "";
+		let opcionDefault = document.createElement("option");
+			opcionDefault.className = "opcion";
+			opcionDefault.setAttribute("value", "");
+			opcionDefault.innerHTML = `-Seleccionar-`;
+		input.appendChild(opcionDefault);
+		for (const juegoComprado of juegosComprados) {
+			let opcion = document.createElement("option");
+			opcion.className = "opcion";
+			opcion.setAttribute("value", noEspacios(juegoComprado.titulo));
+			opcion.innerHTML = `${juegoComprado.titulo}`;
+			input.appendChild(opcion);
+		}
+	}
 /**
  * Funcion que recibe dos nodos y que sirve para quitar los espacios en un array
  * @param {nodo} cadena el nodo del array
