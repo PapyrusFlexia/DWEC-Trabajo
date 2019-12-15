@@ -1,0 +1,19 @@
+#juegosMostrar{
+    width:100;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.juego{
+    width:250px;
+    height:250px;
+    border:1px solid black;
+}
+
+.incorrecto{
+    background-color:rgba(255, 44, 44, 0.6);;
+}
+
+.correcto{
+    background-color:rgba(48, 191, 44, 0.6);
+}
