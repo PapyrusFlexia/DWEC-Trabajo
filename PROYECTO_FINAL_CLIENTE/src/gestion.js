@@ -146,6 +146,13 @@ function realizarBusquedaCreadoryEditorial(creador,editorial){
 	return juegosResultantes;
 }
 
+function recogerFunciones(){
+    filtrarCreadorEditorialDevolverDiez();
+    generoMejorValorado();
+    ordenarPorCampo();
+    filtrarPorLongitudEditorial();
+}
+
 //Botones
 let botonJuegosDiez = document.getElementById("botonJuegosDiez");
 let botonJuegoValorado = document.getElementById("botonJuegoValorado");

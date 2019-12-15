@@ -22,8 +22,10 @@ function realizarComentario(){
 	correcto(inputComentario);
 
 	if(usuarioValidado && juegoValidado && votoValidado){
+        //Es necesario validar el usuario, juego y voto para que el usuario pueda comentar
 		let usuario = listaUsuarios.find(usuario => usuario.contieneNombre(inputNombreUsuario.value));
-		let juego = juegos.find(juego => quitarEspaciosArrays(juego.titulo) === inputJuegoOpinar.value);
+        let juego = juegos.find(juego => quitarEspaciosArrays(juego.titulo) === inputJuegoOpinar.value);
+        //Si el usuario y juego se han seleccionado (not undefined) se creará un nuevo voto que irá para el juego
 		if(usuario !== undefined && juego !== undefined){
 			let nuevoVoto = new Votos(usuario,juego,inputVoto,inputComentario.value);
 		}
@@ -95,20 +97,23 @@ function juegosVotados(){
 	let usarioValidado = validarNombreUsuario(nombreUsuario,divErroresJuegosVotados);
 	if(nombreUsuario.value !== ""){
 		nombre = nombreUsuario.value.trim().toUpperCase();
-		votosJuegos = votosUsuario(nombre);
+        votosJuegos = votosUsuario(nombre);
+        //Es necesario crear la función votosUsuario para obtener los votos y designárselos a la variable votosJuegos.
 	}
 
 	if(usarioValidado){
 		votosJuegos.forEach(votoJuego => {
 			if(!elementosBuscados.includes(votoJuego.juego)){
-				elementosBuscados.push(votoJuego.juego);
+                elementosBuscados.push(votoJuego.juego);
+                //Se añade un juego buscando los que el usuario ha votado
 				let juegoAnadir = juegos.find(juego => noEspacios(juego.titulo) === votoJuego.juego );
 				if(juegoAnadir !== null){
 					juegosMostrarD.push(juegoAnadir);
 				}
 			}
 		} );
-		mostrarJuegosHTML(juegosMostrarD);
+        mostrarJuegosHTML(juegosMostrarD);
+        //Error en la función mostrarJuegosHTML, es la única vez que ocurre, juego lo reconoce como null y no debería
 	}
 	
 }
@@ -205,6 +210,13 @@ function eliminarElementoArray(array, item){
     if ( i !== -1 ) {
         array.splice( i, 1 );
     }
+}
+
+function recogerFunciones(){
+    realizarComentario();
+    juegosVotados();
+    juegosCompradosSimilares();
+    devolverJuegoComprado();
 }
 
 let botonComentarioOpinar = document.getElementById("realizarComentarioOpinar");
