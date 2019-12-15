@@ -25,14 +25,15 @@ function realizarBusqueda(titulo, genero){
 }
 
 function filtrarGenero(){
-    let inputGenero = document.getElementById("genero");
-    let genero  = inputGenero.value.trim().toLowerCase();
+    let inputGenero = document.getElementById("generoId");
+    let genero = inputGenero.value;
+    console.log(genero);
     let juegosResultantes = similarGenero(genero);
     mostrarJuegosHTML(juegosResultantes);
 }
 
 function similarGenero(genero){
-    let juegosResultantes = juegos.filter( juegos => juegos.contieneGenero(genero));
+    let juegosResultantes = juegos.filter( juego => juego.contieneGenero(genero));
     return juegosResultantes;
 }
 
@@ -89,14 +90,14 @@ botonGenero.addEventListener("click",filtrarGenero);
 botonUsuario.addEventListener("click", juegosComprados);
 botonEditorial.addEventListener("click",filtrarEditorial);
 
-/* for (let i = 0; i < inputsText.length; i++) {
+for (let i = 0; i < inputsText.length; i++) {
     inputsText[i].addEventListener("focus",focus);
     inputsText[i].addEventListener("blur",blur);
-} **/
+}
 
 document.addEventListener("DOMContentLoaded", function(event) {
-	mostrarJuegosHTML(juegos);
-	crearOpciones();
+    mostrarJuegosHTML(juegos);
+   
 });
 
 

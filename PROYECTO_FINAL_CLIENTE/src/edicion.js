@@ -112,12 +112,13 @@ botonNuevoJuego.addEventListener("click",añadirJuego);
 botonCambiarUsuario.addEventListener("click",cambiarUsuarioActual);
 botonCambiarEditorial.addEventListener("click",cambiarEditorialActual);
 
-/** for (let i = 0; i < inputsText.length; i++) {
+for (let i = 0; i < inputsText.length; i++) {
     inputsText[i].addEventListener("focus",focus);
     inputsText[i].addEventListener("blur",blur);
-} */
+} 
 
 document.addEventListener("DOMContentLoaded", function(event) {
 	mostrarJuegosHTML(juegos);
 	crearOpciones();
+	
 });
