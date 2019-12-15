@@ -28,7 +28,7 @@ Cuarta función -> 2.5h
 - Ambos: clases.js - 9,5 horas | objetos.js - 4 horas
 - Comentarios, orden y limpieza - 1 hora
 
-Requisitos Generales cumplidos por cada función:
+Requisitos Generales cumplidos por cada función: (primero el comentario y luego la línea)
 
 - Búsqueda (busqueda.js) - Pablo Vega:
 
@@ -132,16 +132,69 @@ Funcion que recibe dos nodos y que sirve para validar la longitud
 Funcion que recibe dos nodos y que sirve para validar el juego seleccionado
 - Línea 311
 
+- Gestión: (gestion.js) (Carlos García)
 
+Funcion que devuelve 10 juegos filtrados por título y editorial
 
+- Línea 9
 
+Funcion que devuelve el juego mejor valorado de cada genero
 
+- Línea 30
 
+Funcion que ordena los juegos dependiendo del campo que selecciones
 
+- Línea 58
 
+Funcion que devuelve juegos cuyas editoriales tengan una longitud mayor o igual a la escrita
 
+- Línea 117
 
+Funcion encargada de devolver el array de juegos y devuelven los juegos resultantes
 
+- Línea 141
+
+- Usuarios (usuarios.js) (Carlos García)
+
+Funcion que permite a un usuario realizar un comentario y votar un juego
+
+- Línea 11
+
+Funcion que valida si se ha seleccionado upvote o downvote y devuelve si se ha validado
+
+- Línea 40
+
+Funcion que obtiene si se ha seleccionado alguno de los radio button a la hora de votar y devuelve el boton seleccionado
+
+- Línea 55
+
+Funcion que sirve para crear las opciones de los inputs
+
+- Línea 70
+
+Funcion que muestra en la pagina los juegos votadas por un usuario
+
+- Línea 86
+
+Funcion que obtiene los votos de un usuario y devuelve los votos de los usuarios
+
+- Línea 120
+
+Funcion que compara juegos similares dependiendo del género de los juegos
+
+- Línea 128
+
+Funcion que comprueba los juegos comprados por el usuario y devuelve los juegos comprados de los usuarios
+
+- Línea 171
+
+Funcion que permite al usuario devolver un juego comprado
+
+- Línea 180
+
+Funcion que elimina un item de un array
+
+- Línea 202
 
 
 
