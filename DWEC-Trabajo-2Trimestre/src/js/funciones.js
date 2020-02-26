@@ -1,5 +1,5 @@
 var ajax = new XMLHttpRequest();
-ajax.open("GET", "servidor/mostrarClientes.php", true);
+ajax.open("GET", "servidor/clientes/mostrarClientes.php", true);
 ajax.send();
 
 ajax.onreadystatechange = function() {
@@ -37,7 +37,7 @@ $(document).ready(function(){
 $('#insert').click(function(event){
     event.preventDefault();
     $.ajax({
-        url: "anadirClientesConn.php",
+        url: "servidor/clientes/anadirClientesConn.php",
         method: "post",
         data: $('form').serialize(),
         dataType: "text",
@@ -57,7 +57,8 @@ $(function(){
     $("#formActualizar").submit(function(event){
         event.preventDefault();
         $("#btnActualizar").prop("disabled",true);
-        $("#formActualizar input").prop("readOnly",true);      
+        $("#formActualizar input").prop("readOnly",true);   
+        actualizar();   
     });
 });
 
@@ -70,7 +71,7 @@ function actualizar(){
     form.append("email",$("#email").val());
     form.append("telefono",$("#telefono").val());
     form.append("dni",$("#dni").val());
-    fetch("editarClientesConn.php",{
+    fetch("servidor/clientes/editarClientesConn.php",{
         method:"post",
         body:form
     })
@@ -84,3 +85,66 @@ function actualizar(){
             $("#resultadoActualizar").html("Error");    
     });    
 }
+
+// ELIMINAR //
+
+$(function(){
+    $("button[data-accion='eliminar']").on("click",function(event){
+        let boton = $(event.target);
+        
+        mostrarModalEliminar(boton.attr("data-ideliminar"));
+    });
+
+    $("button[data-accion='confirmar-eliminar']").on("click",function(event){
+        let boton = $(event.target);
+        eliminarJuegomesa(boton.attr("data-ideliminar"));
+    });
+});
+
+function mostrarModalEliminar(idEliminar){
+    $("#botonConfirmarEliminar").attr("data-ideliminar",idEliminar);
+    $("#modalEliminar").modal("show");
+}
+
+function eliminarJuegomesa(idEliminar){
+    let form = new FormData();
+    form.append("id",idEliminar);
+    fetch("servidor/clientes/borrarClientesConn.php",{
+        method:"POST",
+        body:form
+    }).then(function(){
+        $("#modalEliminar").modal("hide");
+        $("tr[data-idJuegomesa='"+idEliminar+"']").remove();
+    });
+}
+
+// BÚSQUEDA //
+
+$(document).ready(function(){
+	load_data();
+	
+	$('#search_text').keyup(function(){
+		var search = $(this).val();
+		if(search != '')
+		{
+			load_data(search);
+		}
+		else
+		{
+			load_data();			
+		}
+	});
+});
+
+function load_data(query)
+	{
+		$.ajax({
+			url:"servidor/clientes/buscarClientesConn.php",
+			method:"post",
+			data:{query:query},
+			success:function(data)
+			{
+				$('#result').html(data);
+			}
+		});
+	}
