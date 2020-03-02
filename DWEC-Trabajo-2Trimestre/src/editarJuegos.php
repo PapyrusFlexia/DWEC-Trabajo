@@ -12,7 +12,6 @@
 </head>
 
 <body>
-
     <div id="spinner">
         <div class="text-center">
             <div class="spinner-grow text-danger" role="status">
@@ -62,7 +61,7 @@
     </div>
     <div id="resultadoActualizar"> </div>
 
-    <button id="buttonindex" class="float-left submit-button" >REGRESAR A LOS CLIENTES</button>
+    <button id="buttonindex" class="float-left submit-button" >REGRESAR A LOS JUEGOS</button>
 
 <script type="text/javascript">
     document.getElementById("buttonindex").onclick = function () {

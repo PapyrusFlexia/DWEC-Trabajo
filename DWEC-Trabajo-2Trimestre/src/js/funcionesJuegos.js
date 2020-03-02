@@ -65,8 +65,10 @@ function actualizar(){
     let form = new FormData();
     form.append("id",$("#id").val());
     form.append("nombre",$("#nombre").val());
-    form.append("direccion",$("#direccion").val());
-    form.append("email",$("#email").val());
+    form.append("creador",$("#creador").val());
+    form.append("genero",$("#genero").val());
+    form.append("precio",$("#precio").val());
+    form.append("editorial",$("#editorial").val());
     fetch("servidor/juegos/editarJuegosConn.php",{
         method:"post",
         body:form

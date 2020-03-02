@@ -62,7 +62,7 @@
     </div>
   </div>
 </div>
-<button id="buttonindex" class="float-left submit-button" >REGRESAR A LOS CLIENTES</button>
+<button id="buttonindex" class="float-left submit-button" >REGRESAR A LOS JUEGOS</button>
 
 <script type="text/javascript">
     document.getElementById("buttonindex").onclick = function () {

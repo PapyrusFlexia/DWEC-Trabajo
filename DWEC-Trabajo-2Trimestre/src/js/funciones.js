@@ -34,7 +34,7 @@ ajax.onreadystatechange = function() {
 // INSERTAR //
 
 $(document).ready(function(){
-$('#insert').click(function(event){
+$('#prueba').click(function(event){
     event.preventDefault();
     $.ajax({
         url: "servidor/clientes/anadirClientesConn.php",
@@ -147,4 +147,55 @@ function load_data(query)
 				$('#result').html(data);
 			}
 		});
-	}
+    }
+    
+// VALIDAR //
+
+function checkForm() {
+    // Fetching values from all input fields and storing them in variables.
+    var idCheck = document.getElementById("id").value;
+    var nombreCheck = document.getElementById("nombre").value;
+    var apellidosCheck = document.getElementById("apellidos").value;
+    var emailCheck = document.getElementById("email").value;
+    var telefonoCheck = document.getElementById("telefono").value;
+    var dniCheck = document.getElementById("dni").value;
+    //Check input Fields Should not be blanks.
+    if (idCheck == '' || nombreCheck == '' || apellidosCheck == '' || emailCheck == '' || telefonoCheck == '' || dniCheck == '') {
+    alert("Rellena todos los campos");
+    } else {
+    //Notifying error fields
+    var id = document.getElementById("idError");
+    var nombre = document.getElementById("nombreError");
+    var apellidos = document.getElementById("apellidosError");
+    var email = document.getElementById("emailError");
+    var telefono = document.getElementById("telefonoError");
+    var dni = document.getElementById("dniError");
+    //Check All Values/Informations Filled by User are Valid Or Not.If All Fields Are invalid Then Generate alert.
+    if (id.innerHTML == 'Id inválido, solo puede contener números' || nombre.innerHTML == 'Nombre inválido, solo puede contener letras' || apellidos.innerHTML == 'Apellidos inválidos, solo pueden contener letras' || email.innerHTML == 'Email inválido, debe ser como el siguiente formato: example@gmail.com' || telefono.innerHTML == 'Teléfono inválido, solo puede contener 9 números y -' || dni.innerHTML == 'DNI inválido, solo puede contener 8 números y una letra al final') {
+    alert("Rellena la información válida");
+    } else {
+    //Submit Form When All values are valid.
+    document.getElementById("myForm").submit();
+    }
+    }
+    }
+    // AJAX code to check input field values when onblur event triggerd.
+    function validate(field, query) {
+    var xmlhttp;
+    if (window.XMLHttpRequest) { 
+    xmlhttp = new XMLHttpRequest();
+    } else { 
+    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xmlhttp.onreadystatechange = function() {
+    if (xmlhttp.readyState != 4 && xmlhttp.status == 200) {
+    document.getElementById(field).innerHTML = "Validando";
+    } else if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+    document.getElementById(field).innerHTML = xmlhttp.responseText;
+    } else {
+    document.getElementById(field).innerHTML = "Error Occurred. <a href='anadirClientes.php'>Reload Or Try Again</a> the page.";
+    }
+    }
+    xmlhttp.open("GET", "servidor/clientes/validarAnadirClientes.php?field=" + field + "&query=" + query, false);
+    xmlhttp.send();
+    }

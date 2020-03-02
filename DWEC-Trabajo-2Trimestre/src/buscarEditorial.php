@@ -15,7 +15,7 @@
 				<div class="input-group">
 					<span class="input-group-addon">Buscar</span>
 					<input type="text" name="search_text" id="search_text" placeholder="Buscar por nombre de la editorial" class="form-control" />
-                    <button id="buttonindex" class="float-left submit-button" >REGRESAR A LOS CLIENTES</button>
+                    <button id="buttonindex" class="float-left submit-button" >REGRESAR A LAS EDITORIALES</button>
 
 <script type="text/javascript">
     document.getElementById("buttonindex").onclick = function () {
