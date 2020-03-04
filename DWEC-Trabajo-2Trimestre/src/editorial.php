@@ -96,6 +96,16 @@
     };
 </script>
 
+<!-- BUSCAR POR RADIO BUTTON -->
+
+<button id="buttonbuscarRadio" class="float-left submit-button" >BUSCAR EDITORIALES POR RADIO BUTTON</button>
+
+<script type="text/javascript">
+    document.getElementById("buttonbuscarRadio").onclick = function () {
+        location.href = "buscarEditorialRadio.php";
+    };
+</script>
+
     <!-- Formulario añadir y borrar-->
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>

@@ -1,52 +1,55 @@
-
-
-
 var ajax = new XMLHttpRequest();
-ajax.open("GET", "servidor/creador/mostrarCreador.php", true);
+ajax.open("GET", "servidor/clientes/mostrarClientes.php", true);
 ajax.send();
 
 ajax.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-        var dataCreador = JSON.parse(this.responseText);
-        console.log(dataCreador);
+        var data = JSON.parse(this.responseText);
+        console.log(data);
 
         var html = "";
-        for(var a = 0; a < dataCreador.length; a++) {
-            var id = dataCreador[a].id;
-            var nombre = dataCreador[a].nombre;
-            var apellidos = dataCreador[a].apellidos;
-            var email = dataCreador[a].email;
+        for(var a = 0; a < data.length; a++) {
+            var id = data[a].id;
+            var nombre = data[a].nombre;
+            var apellidos = data[a].apellidos;
+            var email = data[a].email;
+            var telefono = data[a].telefono;
+            var dni = data[a].dni;
 
             html += "<tr>";
                 html += "<td>" + id + "</td>";
                 html += "<td>" + nombre + "</td>";
                 html += "<td>" + apellidos + "</td>";
                 html += "<td>" + email + "</td>";
+                html += "<td>" + telefono + "</td>";
+                html += "<td>" + dni + "</td>";
             html += "</tr>";
         }
-        document.getElementById("dataCreador").innerHTML = html;
+        document.getElementById("data").innerHTML = html;
     }
 };
+
+
 
 // INSERTAR //
 
 $(document).ready(function(){
-    $('#insert').click(function(event){
-        event.preventDefault();
-        $.ajax({
-            url: "servidor/creador/anadirCreadorConn.php",
-            method: "post",
-            data: $('form').serialize(),
-            dataType: "text",
-            success: function(strMessage){
-                $('#message').text(strMessage)
-            }
-        })
+$('#insert').click(function(event){
+    event.preventDefault();
+    $.ajax({
+        url: "servidor/clientes/anadirClientesConn.php",
+        method: "post",
+        data: $('form').serialize(),
+        dataType: "text",
+        success: function(strMessage){
+            $('#message').text(strMessage)
+        }
     })
-        
-    })
+})
     
-    // EDITAR //
+})
+
+// EDITAR //
 
 var procesos = [];
 $(function(){
@@ -66,7 +69,9 @@ function actualizar(){
     form.append("nombre",$("#nombre").val());
     form.append("apellidos",$("#apellidos").val());
     form.append("email",$("#email").val());
-    fetch("servidor/creador/editarCreadorConn.php",{
+    form.append("telefono",$("#telefono").val());
+    form.append("dni",$("#dni").val());
+    fetch("servidor/clientes/editarClientesConn.php",{
         method:"post",
         body:form
     })
@@ -104,7 +109,7 @@ function mostrarModalEliminar(idEliminar){
 function eliminarJuegomesa(idEliminar){
     let form = new FormData();
     form.append("id",idEliminar);
-    fetch("servidor/creador/borrarCreadorConn.php",{
+    fetch("servidor/clientes/borrarClientesConn.php",{
         method:"POST",
         body:form
     }).then(function(){
@@ -134,7 +139,7 @@ $(document).ready(function(){
 function load_data(query)
 	{
 		$.ajax({
-			url:"servidor/creador/buscarCreadorConn.php",
+			url:"servidor/clientes/buscarClientesConn.php",
 			method:"post",
 			data:{query:query},
 			success:function(data)
@@ -142,4 +147,7 @@ function load_data(query)
 				$('#result').html(data);
 			}
 		});
-	}
+    }
+
+    
+// VALIDAR //

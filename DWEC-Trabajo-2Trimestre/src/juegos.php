@@ -98,6 +98,16 @@
     };
 </script>
 
+<!-- BUSCAR POR RADIO BUTTON -->
+
+<button id="buttonbuscarRadio" class="float-left submit-button" >BUSCAR JUEGOS POR RADIO BUTTON</button>
+
+<script type="text/javascript">
+    document.getElementById("buttonbuscarRadio").onclick = function () {
+        location.href = "buscarJuegosRadio.php";
+    };
+</script>
+
 
 
     <!-- Formulario añadir y borrar-->
