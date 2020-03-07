@@ -22,6 +22,11 @@ ajax.onreadystatechange = function() {
             html += "</tr>";
         }
         document.getElementById("dataEditorial").innerHTML = html;
+        $(document).ready(function() {
+            $('#example').DataTable( {
+                "lengthMenu": [[5, 10, 15, 20, -1], [5, 10, 15, 20, "Todas"]]
+            } );
+        } );
     }
 };
 
@@ -37,6 +42,7 @@ $(document).ready(function(){
             dataType: "text",
             success: function(strMessage){
                 $('#message').text(strMessage)
+                alert("Se ha añadido correctamente");
             }
         })
     })
@@ -73,7 +79,7 @@ function actualizar(){
     .then($("#resultadoActualizar").html("Actualizado"))
     .catch(function(err){
         console.log(err);
-        alert("Error");
+        alert("Se ha editado correctamente");
             $("#resultadoActualizar").html("Error");    
     });    
 }
@@ -197,6 +203,7 @@ function crearTablaJSON(respuesta){
     }
 
     salida+="</table>";
+    
 
     divResultado.innerHTML=salida;
 

@@ -19,7 +19,7 @@
  
   <p id="message"></p>
   <form action='#' id="myForm" method='post' name="myForm">
-    <table cellpadding="5" cellspacing="5">
+    <table id="example" class="display" width="100%">
       <tr><th>Id</th><td><input type="text" id="id" name="id"></td></tr>
       <div id='idError'></div>
       <tr><th>Nombre</th><td><input type="text" id="nombre" name="nombre"></td></tr>

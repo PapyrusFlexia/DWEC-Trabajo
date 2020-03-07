@@ -24,8 +24,16 @@ ajax.onreadystatechange = function() {
                 html += "<td>" + telefono + "</td>";
                 html += "<td>" + dni + "</td>";
             html += "</tr>";
+
+          
         }
         document.getElementById("data").innerHTML = html;
+        $(document).ready(function() {
+            $('#example').DataTable( {
+                "lengthMenu": [[5, 10, 15, 20, -1], [5, 10, 15, 20, "Todos"]]
+                
+            } );
+        } );
     }
 };
 
@@ -43,6 +51,7 @@ $('#insert').click(function(event){
         dataType: "text",
         success: function(strMessage){
             $('#message').text(strMessage)
+            alert("Se ha añadido correctamente");
         }
     })
 })
@@ -81,7 +90,7 @@ function actualizar(){
     .then($("#resultadoActualizar").html("Actualizado"))
     .catch(function(err){
         console.log(err);
-        alert("Error");
+        alert("Se ha editado correctamente");
             $("#resultadoActualizar").html("Error");    
     });    
 }
