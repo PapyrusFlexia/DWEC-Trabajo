@@ -16,7 +16,7 @@
    require_once 'servidor/creador/borrarCreadorMYSQL.php';
 ?>
 <table class="table">
-  <thead>
+  <thead class="thead-dark">
     <tr>
       <th scope="col">Nombre</th>
       <th scope="col">Apellidos</th>
@@ -58,7 +58,7 @@
     </div>
   </div>
 </div>
-<button id="buttonindex" class="float-left submit-button" >REGRESAR A LOS CREADORES</button>
+<button id="buttonindex" class="float-left submit-button btn btn-primary" >REGRESAR A LOS CREADORES</button>
 
 <script type="text/javascript">
     document.getElementById("buttonindex").onclick = function () {

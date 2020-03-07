@@ -16,7 +16,7 @@
    require_once 'servidor/clientes/borrarClientesMYSQL.php';
 ?>
 <table class="table">
-  <thead>
+  <thead class="thead-dark">
     <tr>
       <th scope="col">Nombre</th>
       <th scope="col">Apellidos</th>
@@ -48,7 +48,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title">Eliminar Cliente</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <button type="button" class="close " data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
@@ -62,7 +62,7 @@
     </div>
   </div>
 </div>
-<button id="buttonindex" class="float-left submit-button" >REGRESAR A LOS CLIENTES</button>
+<button id="buttonindex" class="float-left submit-button btn btn-primary" >REGRESAR A LOS CLIENTES</button>
 
 <script type="text/javascript">
     document.getElementById("buttonindex").onclick = function () {

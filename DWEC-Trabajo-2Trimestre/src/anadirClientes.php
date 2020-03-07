@@ -32,11 +32,11 @@
       <div id='telefonoError'></div>
       <tr><th>Dni</th><td><input type="text" id="dni" name="dni"></td></tr>
       <div id='dniError'></div>
-      <td colspan="2"><input  type='button' value='Submit' name="insert" id="insert"><!--<input type="submit" name="insert" id="insert"></td>-->
+      <td colspan="2"><input  type='button' class="btn btn-primary" value='Submit' name="insert" id="insert"><!--<input type="submit" name="insert" id="insert"></td>-->
     </table>
   </form>
 
-  <button id="buttonindex" class="float-left submit-button" >REGRESAR A LOS CLIENTES</button>
+  <button id="buttonindex" class="float-left submit-button btn btn-primary" >REGRESAR A LOS CLIENTES</button>
   </div>
 </div> 
 <script type="text/javascript">

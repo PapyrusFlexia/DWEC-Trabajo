@@ -26,7 +26,7 @@
     </table>
   </form>
 
-  <button id="buttonindex" class="float-left submit-button" >REGRESAR A LAS EDITORIALES</button>
+  <button id="buttonindex" class="float-left submit-button btn btn-primary" >REGRESAR A LAS EDITORIALES</button>
 
 <script type="text/javascript">
     document.getElementById("buttonindex").onclick = function () {

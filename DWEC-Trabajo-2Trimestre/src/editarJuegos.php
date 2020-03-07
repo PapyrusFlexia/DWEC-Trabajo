@@ -61,7 +61,7 @@
     </div>
     <div id="resultadoActualizar"> </div>
 
-    <button id="buttonindex" class="float-left submit-button" >REGRESAR A LOS JUEGOS</button>
+    <button id="buttonindex" class="float-left submit-button btn btn-primary" >REGRESAR A LOS JUEGOS</button>
 
 <script type="text/javascript">
     document.getElementById("buttonindex").onclick = function () {

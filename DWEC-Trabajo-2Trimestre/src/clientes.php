@@ -14,7 +14,7 @@
   </head>
   <body>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler btn btn-primary" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
@@ -73,7 +73,7 @@
     <tbody id="data"></tbody>
 </table> -->
 <!-- AÑADIR -->
-<button id="buttonanadir" class="float-left submit-button" >AÑADIR CLIENTES</button>
+<button id="buttonanadir" class="float-left submit-button btn btn-primary" >AÑADIR CLIENTES</button>
 
 <script type="text/javascript">
     document.getElementById("buttonanadir").onclick = function () {
@@ -83,7 +83,7 @@
 
 <!-- EDITAR -->
 
-<button id="buttoneditar" class="float-left submit-button" >EDITAR CLIENTES</button>
+<button id="buttoneditar" class="float-left submit-button btn btn-primary" >EDITAR CLIENTES</button>
 
 <script type="text/javascript">
     document.getElementById("buttoneditar").onclick = function () {
@@ -93,7 +93,7 @@
 
 <!-- BORRAR-->
 
-<button id="buttonborrar" class="float-left submit-button" >BORRAR CLIENTES</button>
+<button id="buttonborrar" class="float-left submit-button btn btn-primary" >BORRAR CLIENTES</button>
 
 <script type="text/javascript">
     document.getElementById("buttonborrar").onclick = function () {
@@ -103,7 +103,7 @@
 
 <!-- BUSCAR -->
 
-<button id="buttonbuscar" class="float-left submit-button" >BUSCAR CLIENTES</button>
+<button id="buttonbuscar" class="float-left submit-button btn btn-primary" >BUSCAR CLIENTES</button>
 
 <script type="text/javascript">
     document.getElementById("buttonbuscar").onclick = function () {

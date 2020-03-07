@@ -15,7 +15,7 @@
 
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler btn btn-primary" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
@@ -48,7 +48,7 @@
     </div>
     <h1>EDITORIALES</h1>
     <table id="example" class="table table-striped table-bordered" style="width:100%">
-        <thead>
+        <thead class="thead-dark">
             <tr>
                 <th>id</th>
                 <th>nombre</th>
@@ -60,7 +60,7 @@
         </tfoot>
     </table>
 <!-- AÑADIR -->
-<button id="buttonanadir" class="float-left submit-button" >AÑADIR EDITORIALES</button>
+<button id="buttonanadir" class="float-left submit-button btn btn-primary" >AÑADIR EDITORIALES</button>
 
 <script type="text/javascript">
     document.getElementById("buttonanadir").onclick = function () {
@@ -70,7 +70,7 @@
 
 <!-- EDITAR -->
 
-<button id="buttoneditar" class="float-left submit-button" >EDITAR EDITORIALES</button>
+<button id="buttoneditar" class="float-left submit-button btn btn-primary" >EDITAR EDITORIALES</button>
 
 <script type="text/javascript">
     document.getElementById("buttoneditar").onclick = function () {
@@ -80,7 +80,7 @@
 
 <!-- BORRAR-->
 
-<button id="buttonborrar" class="float-left submit-button" >BORRAR EDITORIALES</button>
+<button id="buttonborrar" class="float-left submit-button btn btn-primary" >BORRAR EDITORIALES</button>
 
 <script type="text/javascript">
     document.getElementById("buttonborrar").onclick = function () {
@@ -90,7 +90,7 @@
 
 <!-- BUSCAR -->
 
-<button id="buttonbuscar" class="float-left submit-button" >BUSCAR EDITORIALES</button>
+<button id="buttonbuscar" class="float-left submit-button btn btn-primary" >BUSCAR EDITORIALES</button>
 
 <script type="text/javascript">
     document.getElementById("buttonbuscar").onclick = function () {
@@ -100,7 +100,7 @@
 
 <!-- BUSCAR POR RADIO BUTTON -->
 
-<button id="buttonbuscarRadio" class="float-left submit-button" >BUSCAR EDITORIALES POR RADIO BUTTON</button>
+<button id="buttonbuscarRadio" class="float-left submit-button btn btn-primary" >BUSCAR EDITORIALES POR RADIO BUTTON</button>
 
 <script type="text/javascript">
     document.getElementById("buttonbuscarRadio").onclick = function () {

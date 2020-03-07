@@ -15,7 +15,7 @@
 				<div class="input-group">
 					<span class="input-group-addon">Buscar</span>
 					<input type="text" name="search_text" id="search_text" placeholder="Buscar por nombre del creador" class="form-control" />
-                    <button id="buttonindex" class="float-left submit-button" >REGRESAR A LOS CREADORES</button>
+                    <button id="buttonindex" class="float-left submit-button btn btn-primary" >REGRESAR A LOS CREADORES</button>
 
 <script type="text/javascript">
     document.getElementById("buttonindex").onclick = function () {
